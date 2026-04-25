@@ -10,28 +10,30 @@ const reports = [
     description: "Deep dive into bypassing advanced Intrusion Detection Systems using packet fragmentation and timing-based obfuscation.",
     icon: Shield,
     color: "text-red-400",
-    tags: ["Network Security", "IDS", "Stealth"]
+    tags: ["Network Security", "IDS", "Stealth"],
+    link: "https://github.com/prajwal-2201/Intrusion-Detection-System-/blob/main/report.pdf"
   },
   {
     id: "LR-002",
-    title: "Vulnerability Research: Middleware CVE",
-    category: "Security Research",
-    date: "2024-02-20",
-    description: "Detailed analysis of a memory corruption vulnerability in popular middleware, including a proof-of-concept exploit.",
-    icon: Search,
+    title: "Web Application Penetration Testing",
     category: "Vulnerability Research",
+    date: "2024-02-20",
+    description: "Detailed security audit of web architectures, documenting exploitation paths for critical vulnerabilities.",
+    icon: Search,
     color: "text-neon-blue",
-    tags: ["Exploit Dev", "C++", "Memory Safety"]
+    tags: ["Web Security", "PenTesting", "OWASP"],
+    link: "https://github.com/prajwal-2201/Web-Application-Penetration-Testing/blob/main/report.pdf"
   },
   {
     id: "LR-003",
-    title: "Automated Pentesting Frameworks",
-    category: "Blue Team",
+    title: "Air Quality Pattern Analysis",
+    category: "Data Science",
     date: "2024-01-05",
-    description: "Building a scalable automation layer for continuous security audits using Python and cloud-native tools.",
+    description: "Researching and predicting environmental patterns using advanced analytical models and data processing.",
     icon: Lock,
     color: "text-neon-green",
-    tags: ["Automation", "Python", "Cloud Security"]
+    tags: ["Analytics", "Prediction", "Research"],
+    link: "https://github.com/prajwal-2201/Predicting-and-Analyzing-Air-Quality-Patterns/blob/main/report.pdf"
   }
 ];
 
@@ -96,10 +98,15 @@ export default function LabReports() {
 
                   <div className="flex items-center justify-between pt-6 border-t border-white/5 mt-auto">
                     <span className="text-[10px] font-mono text-slate-600">{report.date}</span>
-                    <button className="flex items-center gap-1 text-xs font-mono text-neon-blue hover:text-white transition-colors group/btn">
+                    <a 
+                      href={report.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="flex items-center gap-1 text-xs font-mono text-neon-blue hover:text-white transition-colors group/btn"
+                    >
                       READ_REPORT
                       <ChevronRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </motion.div>
