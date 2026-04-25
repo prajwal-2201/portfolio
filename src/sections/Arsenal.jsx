@@ -3,32 +3,32 @@ import { Shield, Server, Search, Target } from 'lucide-react';
 
 const categories = [
   {
-    title: "Detection Engineering",
-    icon: Shield,
+    title: "Systems & Internals",
+    icon: Server,
     color: "text-red-400",
     glow: "group-hover:shadow-[0_0_30px_rgba(248,113,113,0.15)] group-hover:border-red-400/50",
-    skills: ["Suricata/Snort Rules", "YARA Signatures", "SIEM (ELK, Splunk)", "Threat Modeling"]
+    skills: ["Linux Namespaces", "cgroups", "Process Isolation", "Kernel Structures"]
   },
   {
-    title: "Systems Architecture",
-    icon: Server,
+    title: "Detection Engineering",
+    icon: Shield,
     color: "text-neon-purple",
-    glow: "group-hover:shadow-[0_0_30px_rgba(176,38,255,0.15)] group-hover:border-neon-purple/50",
-    skills: ["Linux Namespaces", "cgroups", "Docker/Containers", "Network Topologies"]
+    glow: "group-hover:shadow-[0_0_30_rgba(176,38,255,0.15)] group-hover:border-neon-purple/50",
+    skills: ["Rule-based Detection", "IOC Analysis", "YARA Signatures", "SIEM (ELK, Splunk)"]
   },
   {
-    title: "Incident Response",
+    title: "Network & Traffic",
     icon: Search,
     color: "text-neon-green",
     glow: "group-hover:shadow-[0_0_30px_rgba(0,255,102,0.15)] group-hover:border-neon-green/50",
-    skills: ["Log Analysis", "Packet Inspection (PCAP)", "Memory Forensics", "Malware Sandbox"]
+    skills: ["Traffic Inspection", "Packet Analysis", "Wireshark", "Suricata Rules"]
   },
   {
-    title: "Offensive Tactics",
+    title: "Threat Analysis",
     icon: Target,
     color: "text-neon-blue",
     glow: "group-hover:shadow-[0_0_30px_rgba(0,240,255,0.15)] group-hover:border-neon-blue/50",
-    skills: ["OWASP Top 10", "Vulnerability Scanning", "Network Exploitation", "Privilege Escalation"]
+    skills: ["Log Parsing", "Alert Correlation", "Burp Suite", "Nmap Scans"]
   }
 ];
 

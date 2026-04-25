@@ -3,25 +3,32 @@ import { BookOpen, Target, Cloud, ShieldCheck } from 'lucide-react';
 
 const learningGoals = [
   {
-    title: "Security+ / eJPT",
-    status: "Preparing for certification",
-    icon: ShieldCheck,
-    color: "text-neon-blue",
-    progress: 75
-  },
-  {
     title: "Detection Engineering",
-    status: "Building custom Suricata rules",
+    status: "Advanced rule tuning and behavioral analysis",
     icon: Target,
     color: "text-red-400",
-    progress: 60
+    progress: 70
   },
   {
     title: "Cloud Security",
-    status: "Exploring AWS IAM & Security Groups",
+    status: "Exploring IAM security and cloud infrastructure hardening",
     icon: Cloud,
     color: "text-neon-purple",
-    progress: 40
+    progress: 45
+  },
+  {
+    title: "Security+ / eJPT",
+    status: "Preparing for industry certifications",
+    icon: ShieldCheck,
+    color: "text-neon-blue",
+    progress: 85
+  },
+  {
+    title: "Incident Response",
+    status: "Improving workflows for forensic analysis",
+    icon: BookOpen,
+    color: "text-neon-green",
+    progress: 55
   }
 ];
 

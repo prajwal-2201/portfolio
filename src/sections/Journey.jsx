@@ -40,7 +40,43 @@ export default function Journey() {
             <div className="h-px w-12 bg-neon-blue" />
             <span className="text-xs font-mono text-neon-blue tracking-widest uppercase">Identity</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">The <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-purple to-neon-blue">Objective</span></h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-8">The <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-purple to-neon-blue">Objective</span></h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-slate-300">
+            <div className="space-y-6">
+              <p className="text-lg leading-relaxed">
+                I’m a final-year Computer Science student specializing in cybersecurity, with a focus on defensive security and detection engineering.
+              </p>
+              <p className="text-lg leading-relaxed">
+                I’ve built systems for real-time threat monitoring, intrusion detection, and vulnerability analysis — simulating how attacks happen and how to stop them.
+              </p>
+            </div>
+            
+            <div className="glass-panel p-8 bg-white/5 border border-white/10 rounded-xl">
+              <h4 className="text-xs font-mono text-neon-purple uppercase tracking-[0.2em] mb-4">My work focuses on:</h4>
+              <ul className="space-y-3 font-light text-sm">
+                <li className="flex items-center gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-neon-purple" />
+                  Building SOC pipelines
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-neon-purple" />
+                  Designing detection rules
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-neon-purple" />
+                  Analyzing logs and threat patterns
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-neon-purple" />
+                  Understanding attacker behavior to improve defense
+                </li>
+              </ul>
+              <p className="mt-6 text-xs text-slate-500 font-mono italic">
+                Currently preparing for industry certifications and looking to contribute to real-world security teams.
+              </p>
+            </div>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

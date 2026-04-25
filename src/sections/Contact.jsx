@@ -23,7 +23,7 @@ export default function Contact() {
           </h2>
           
           <p className="text-lg text-slate-400 mb-12 max-w-2xl mx-auto font-light relative z-10">
-            Ready to secure real-world infrastructures. Open to full-time opportunities and internships.
+            Let’s connect if you're working on security systems, SOC teams, or threat detection problems.
           </p>
 
           {/* Primary Actions (Hire Me / Resume) */}

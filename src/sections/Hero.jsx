@@ -41,8 +41,12 @@ export default function Hero() {
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple">| SOC & Detection Systems</span>
         </motion.h1>
 
-        <motion.p variants={itemVariants} className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-12 font-light">
-          I build systems that detect, analyze, and respond to real-world cyber threats.
+        <motion.p variants={itemVariants} className="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto mb-4 font-medium">
+          I design and build systems that detect, analyze, and respond to real-world cyber threats.
+        </motion.p>
+
+        <motion.p variants={itemVariants} className="text-base md:text-lg text-slate-400 max-w-2xl mx-auto mb-12 font-light">
+          Focused on threat detection, incident response, and defensive engineering using Python, Linux, and modern security tooling.
         </motion.p>
 
         <motion.div variants={itemVariants} className="flex flex-col sm:flex-row justify-center items-center gap-4">

@@ -3,33 +3,26 @@ import { ShieldAlert, Crosshair, AlertTriangle } from 'lucide-react';
 
 const simulations = [
   {
-    id: "SIM-01",
-    attack: "IDS Bypass via Packet Fragmentation",
+    id: "RES-01",
+    attack: "IDS Bypass Techniques",
     icon: Crosshair,
     color: "text-red-400",
-    howItWorks: "Attackers split malicious payloads into small overlapping fragments, causing the IDS state engine to misassemble the packets and fail to match signatures.",
+    howItWorks: "Studied packet fragmentation and timing-based evasion to understand how attackers avoid detection systems.",
     howToDetect: "Monitor for unusually high rates of IP fragmentation, overlapping offsets, and out-of-order fragment delivery.",
-    howToFix: "Configure target-based fragment reassembly (e.g., frag3 in Snort) to strictly mirror the host OS's TCP/IP stack behavior."
+    howToFix: "Explored detection improvements and host-based fragment reassembly strictness."
   },
   {
-    id: "SIM-02",
-    attack: "DVWA: Command Injection",
+    id: "RES-02",
+    attack: "Web Exploitation (DVWA)",
     icon: AlertTriangle,
     color: "text-neon-purple",
-    howItWorks: "User input is passed directly to a system shell without sanitization, allowing attackers to append shell operators (like `;` or `&&`) to execute arbitrary commands.",
-    howToDetect: "Analyze web server logs for suspicious shell meta-characters and monitor child processes spawned by the web server service.",
-    howToFix: "Use parameterized APIs (like `execFile`) instead of passing strings to a shell, and strictly validate/sanitize all user inputs."
-  },
-  {
-    id: "SIM-03",
-    attack: "OWASP: Broken Access Control",
-    icon: ShieldAlert,
-    color: "text-neon-blue",
-    howItWorks: "An application fails to verify if a user has permissions for a requested resource, allowing them to modify URL parameters (like ID) to access other users' data.",
-    howToDetect: "Implement robust audit logging for all authorization failures and monitor for excessive '403 Forbidden' or anomalous data access patterns.",
-    howToFix: "Enforce authorization checks at the data layer for every single request, defaulting to deny."
+    howItWorks: "Identified SQL injection and XSS vulnerabilities within controlled environments; tested input validation weaknesses.",
+    howToDetect: "Mapped vulnerabilities to OWASP Top 10 categories to standardize detection patterns.",
+    howToFix: "Applied secure coding principles and robust input sanitization to prevent exploitation."
   }
 ];
+
+const approach = "For each attack → I analyze how it works, how to detect it, and how to prevent it.";
 
 export default function LabReports() {
   return (
@@ -47,9 +40,12 @@ export default function LabReports() {
             <span className="text-xs font-mono text-red-500 tracking-widest uppercase">Red Team Operations</span>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Security Research & <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Attack Simulations</span></h2>
-          <p className="text-slate-400 text-lg max-w-2xl font-light">
+          <p className="text-slate-400 text-lg max-w-2xl font-light mb-4">
             Understanding the adversary to build stronger defenses.
           </p>
+          <div className="inline-block px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-sm font-mono">
+            {approach}
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

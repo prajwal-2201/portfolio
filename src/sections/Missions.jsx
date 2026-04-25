@@ -5,37 +5,70 @@ import { FaGithub as Github } from 'react-icons/fa';
 const projects = [
   {
     id: "P-01",
-    title: "CyberSentinel - SOC Platform",
-    impact: "Processes 500+ security events/sec and reduces alert fatigue by 35%.",
+    title: "CyberSentinel – SOC Platform",
+    impact: "Processes 500+ security events/sec and reduces alert fatigue by ~35%.",
     whatItDoes: [
-      "Real-time log ingestion",
-      "Rule-based alert correlation",
-      "Dashboard for analysts"
+      "Ingests and parses real-time log data",
+      "Aggregates events and correlates alerts",
+      "Displays actionable insights via a central dashboard"
     ],
-    techStack: ["Python", "ELK Stack", "REST APIs", "React"],
+    techStack: ["Python", "REST APIs", "ELK Stack"],
     whatIDid: [
-      "Designed event pipeline",
-      "Built correlation rules",
-      "Optimized detection logic"
+      "Log ingestion pipeline",
+      "Rule-based detection engine",
+      "Alert correlation logic",
+      "Backend APIs for data flow"
     ],
     github: "https://github.com/prajwal-2201"
   },
   {
     id: "P-02",
-    title: "Vanguard IDS",
-    impact: "Achieved 90% detection accuracy on malicious traffic with sub-10ms latency.",
+    title: "Host-Based IDS",
+    impact: "90%+ detection accuracy on SQLi and XSS attacks; tested on 10k+ packets.",
     whatItDoes: [
-      "Packet sniffing & deep inspection",
-      "Signature-based threat matching",
-      "Automated IP blocking mechanisms"
+      "Monitors system/network activity",
+      "Detects malicious traffic patterns using rules",
+      "Flags indicators of compromise in real time"
     ],
-    techStack: ["C++", "Python", "Suricata", "Linux Netfilter"],
+    techStack: ["Python", "Suricata", "Wireshark"],
     whatIDid: [
-      "Engineered packet parsing engine",
-      "Integrated Suricata ruleset",
-      "Developed auto-mitigation scripts"
+      "Custom detection rules (50+)",
+      "Traffic analysis logic",
+      "Integration with Suricata"
     ],
-    github: "https://github.com/prajwal-2201"
+    github: "https://github.com/prajwal-2201/Intrusion-Detection-System-"
+  },
+  {
+    id: "P-03",
+    title: "DockSmith – Container Runtime",
+    impact: "Built a lightweight container runtime from scratch.",
+    whatItDoes: [
+      "Runs isolated processes similar to Docker containers",
+      "Provides filesystem and process isolation"
+    ],
+    techStack: ["Go", "Linux (namespaces, cgroups, chroot)"],
+    whatIDid: [
+      "Namespace-based isolation (PID, mount, etc.)",
+      "cgroups-based resource control",
+      "Custom container execution logic"
+    ],
+    github: "https://github.com/prajwal-2201/DockSmith"
+  },
+  {
+    id: "P-04",
+    title: "Automated Vulnerability Scanner",
+    impact: "Reduced manual testing time by ~50%.",
+    whatItDoes: [
+      "Scans web applications for common vulnerabilities",
+      "Identifies input validation flaws and misconfigurations"
+    ],
+    techStack: ["Python", "DVWA"],
+    whatIDid: [
+      "Automated scanning logic",
+      "Payload testing system",
+      "Vulnerability reporting output"
+    ],
+    github: "https://github.com/prajwal-2201/Web-Application-Penetration-Testing"
   }
 ];
 
