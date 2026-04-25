@@ -33,7 +33,7 @@ export default function Hero() {
           <Terminal size={12} /> System_Initialization // Operator: Prajwal_V
         </div>
 
-        <h1 className="text-5xl md:text-8xl font-black mb-8 leading-tight tracking-tighter text-white uppercase terminal-text">
+        <h1 className="text-4xl md:text-8xl font-black mb-8 leading-tight tracking-tighter text-white uppercase terminal-text">
           Building <span className="relative inline-block">
             <span className="relative z-10 text-neon-blue">Resilient</span>
             <span className="absolute bottom-2 left-0 w-full h-4 bg-neon-blue/10 -z-10" />
@@ -43,15 +43,15 @@ export default function Hero() {
 
         <div className="mb-12 relative inline-block group">
           <div className="absolute -inset-4 bg-neon-blue/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-          <div className="relative glass-panel px-8 py-6 border-l-4 border-l-neon-blue rounded-none hud-border bg-black/40 hover:bg-black/60 transition-all duration-300 transform hover:-translate-y-1">
-            <p className="text-xl md:text-3xl text-slate-100 font-mono tracking-tight leading-tight">
+          <div className="relative glass-panel px-6 md:px-8 py-5 md:py-6 border-l-4 border-l-neon-blue rounded-none hud-border bg-black/40 hover:bg-black/60 transition-all duration-300 transform hover:-translate-y-1">
+            <p className="text-lg md:text-3xl text-slate-100 font-mono tracking-tight leading-tight">
               Cybersecurity-focused engineer building<br className="hidden md:block" />
-              <span className="text-neon-blue font-bold">real-world defensive tools</span> and secure architectures.
+              <span className="text-neon-blue font-bold ml-2 md:ml-0">real-world defensive tools</span> and secure architectures.
             </p>
           </div>
         </div>
 
-        <p className="text-sm md:text-lg text-slate-500 max-w-2xl mx-auto mb-12 font-mono uppercase tracking-[0.3em] leading-relaxed">
+        <p className="text-xs md:text-lg text-slate-500 max-w-2xl mx-auto mb-12 font-mono uppercase tracking-[0.2em] md:tracking-[0.3em] leading-relaxed px-4 md:px-0">
           Specializing in threat detection, SOC pipelines, <br /> and kernel-level process isolation.
         </p>
 

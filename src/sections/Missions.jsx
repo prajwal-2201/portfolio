@@ -136,12 +136,12 @@ export default function Missions() {
                     ))}
                   </div>
 
-                  <div className="flex items-center gap-6">
+                  <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
                     <a 
                       href={project.github} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 px-8 py-4 bg-white text-black font-bold uppercase tracking-widest text-[10px] hover:bg-neon-blue transition-all"
+                      className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-white text-black font-bold uppercase tracking-widest text-[10px] hover:bg-neon-blue transition-all"
                     >
                       <Github size={16} />
                       View_Source
@@ -150,7 +150,7 @@ export default function Missions() {
                       href={project.demo} 
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 px-8 py-4 border border-white/10 text-white font-bold uppercase tracking-widest text-[10px] hover:bg-white/5 transition-all"
+                      className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 border border-white/10 text-white font-bold uppercase tracking-widest text-[10px] hover:bg-white/5 transition-all"
                     >
                       <PlayCircle size={16} />
                       Technical_Brief

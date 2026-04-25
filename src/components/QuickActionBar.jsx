@@ -3,7 +3,7 @@ import { FaGithub } from 'react-icons/fa';
 
 export default function QuickActionBar() {
   return (
-    <div className="fixed right-6 bottom-1/4 z-50 flex flex-col gap-4">
+    <div className="fixed right-6 bottom-1/4 z-50 hidden md:flex flex-col gap-4">
       <button 
         onClick={() => window.dispatchEvent(new CustomEvent('open-terminal'))}
         className="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-slate-400 hover:text-neon-green hover:border-neon-green/50 transition-all group"
