@@ -9,7 +9,8 @@ const research = [
     howItWorks: "Leveraged overlapping TCP fragments to desynchronize IDS state machine from host reassembly, effectively smuggling payloads past detection.",
     detection: "Signature-based detection fails; requires target-aware reassembly and fragmentation overlap thresholding.",
     mitigation: "Strict fragmentation timeout enforcement and non-overlapping reassembly policies.",
-    impact: "Successfully bypassed Snort/Suricata default configurations."
+    impact: "Successfully bypassed Snort/Suricata default configurations.",
+    link: "https://github.com/prajwal-2201/Intrusion-Detection-System-"
   },
   {
     id: "VULN-R02",
@@ -19,7 +20,8 @@ const research = [
     howItWorks: "Executed SQL Injection and Cross-Site Scripting (XSS) at 'High' difficulty levels using manual and automated techniques.",
     detection: "Monitor server logs for meta-character sequences; implement WAF filtering for common malicious patterns.",
     mitigation: "Parameterized queries (SQLi) and robust input sanitization/CSP (XSS).",
-    impact: "Mapped 5 critical exploitation paths to OWASP Top 10."
+    impact: "Mapped 5 critical exploitation paths to OWASP Top 10.",
+    link: "https://github.com/prajwal-2201"
   }
 ];
 
@@ -75,9 +77,14 @@ export default function LabReports() {
                   <div className="flex items-center gap-2 text-[10px] font-mono text-neon-red">
                     <ShieldAlert size={12} /> IMPACT: {report.impact}
                   </div>
-                  <div className="text-[10px] font-mono text-slate-500 group-hover:text-white transition-colors flex items-center gap-2">
+                  <a 
+                    href={report.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-mono text-slate-500 hover:text-neon-red transition-colors flex items-center gap-2 cursor-pointer z-20"
+                  >
                     FULL_REPORT <ChevronRight size={14} />
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>

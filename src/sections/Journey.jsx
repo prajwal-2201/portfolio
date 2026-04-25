@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Shield, Target, Cpu, Activity, User, Briefcase, GraduationCap } from 'lucide-react';
 
 export default function Journey() {
@@ -8,12 +7,7 @@ export default function Journey() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           {/* Left Side - Dossier Profile */}
           <div className="lg:col-span-4">
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="glass-panel p-1 border-white/5 hud-border"
-            >
+            <div className="glass-panel p-1 border-white/5 hud-border">
               <div className="bg-black/80 p-8 border border-white/5">
                 <div className="w-full aspect-square bg-cyber-dark border border-white/10 mb-8 relative group overflow-hidden flex items-center justify-center">
                   <User size={80} className="text-slate-800" />
@@ -41,18 +35,12 @@ export default function Journey() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Right Side - Professional Objective */}
           <div className="lg:col-span-8">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="mb-12"
-            >
+            <div className="mb-12">
               <div className="flex items-center gap-3 mb-4">
                 <div className="h-px w-12 bg-neon-blue" />
                 <span className="text-xs font-mono text-neon-blue tracking-widest uppercase">Operator Profile</span>
@@ -61,13 +49,13 @@ export default function Journey() {
               
               <div className="space-y-8 text-slate-300">
                 <p className="text-xl md:text-2xl font-light leading-relaxed">
-                  I’m a final-year Computer Science student specializing in <span className="text-white font-bold underline decoration-neon-blue underline-offset-8">cybersecurity</span>, with a focus on defensive security and detection engineering.
+                  I’m a Computer Science student specializing in <span className="text-white font-bold underline decoration-neon-blue underline-offset-8">cybersecurity</span>, with a focus on defensive security and detection engineering.
                 </p>
                 <p className="text-lg text-slate-400 font-light leading-relaxed">
                   I’ve built systems for real-time threat monitoring, intrusion detection, and vulnerability analysis — simulating how attacks happen and how to stop them. My work bridges the gap between software engineering and offensive security research.
                 </p>
               </div>
-            </motion.div>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="glass-panel p-8 border-white/5 hover:border-neon-blue/20 transition-all group">
@@ -102,9 +90,9 @@ export default function Journey() {
                 </div>
                 <div className="space-y-4">
                   <div className="text-sm text-slate-300 font-bold">B.Tech in Computer Science</div>
-                  <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Expected_Graduation: 2025</div>
+                  <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Expected_Graduation: 2027</div>
                   <div className="flex flex-wrap gap-2 pt-2">
-                    <span className="px-2 py-1 text-[8px] font-mono bg-neon-green/10 text-neon-green border border-neon-green/20">GPA: 8.41</span>
+                    <span className="px-2 py-1 text-[8px] font-mono bg-neon-green/10 text-neon-green border border-neon-green/20">GPA: 6.01</span>
                   </div>
                 </div>
               </div>
