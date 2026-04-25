@@ -11,7 +11,7 @@ const reports = [
     icon: Shield,
     color: "text-red-400",
     tags: ["Network Security", "IDS", "Stealth"],
-    link: "https://github.com/prajwal-2201/Intrusion-Detection-System-/blob/main/report.pdf"
+    link: "https://github.com/prajwal-2201/Intrusion-Detection-System-/blob/main/report/report.pdf"
   },
   {
     id: "LR-002",
@@ -22,7 +22,7 @@ const reports = [
     icon: Search,
     color: "text-neon-blue",
     tags: ["Web Security", "PenTesting", "OWASP"],
-    link: "https://github.com/prajwal-2201/Web-Application-Penetration-Testing/blob/main/report.pdf"
+    link: "https://github.com/prajwal-2201/Web-Application-Penetration-Testing/blob/main/Web_Application_Penetration_Testing_Report_Prajwal_V.pdf"
   },
   {
     id: "LR-003",
@@ -33,7 +33,7 @@ const reports = [
     icon: Lock,
     color: "text-neon-green",
     tags: ["Analytics", "Prediction", "Research"],
-    link: "https://github.com/prajwal-2201/Predicting-and-Analyzing-Air-Quality-Patterns/blob/main/report.pdf"
+    link: "https://github.com/prajwal-2201/Predicting-and-Analyzing-Air-Quality-Patterns/blob/main/REPORT.pdf"
   }
 ];
 
