@@ -3,12 +3,12 @@ import { MapPin, Compass, Eye, Map } from 'lucide-react';
 
 export default function Travel() {
   const points = [
-    { top: '80%', left: '20%', label: 'Kerala', delay: 0.1 },
-    { top: '50%', left: '40%', label: 'Tamil Nadu', delay: 0.2 },
-    { top: '30%', left: '30%', label: 'Karnataka', delay: 0.3 },
-    { top: '20%', left: '60%', label: 'Andhra', delay: 0.4 },
-    { top: '40%', left: '80%', label: 'Telangana', delay: 0.5 },
-    { top: '70%', left: '70%', label: 'Pondicherry', delay: 0.6 }
+    { top: '80%', left: '15%', label: 'Kerala', delay: 0.1 },
+    { top: '68%', left: '30%', label: 'Tamil Nadu', delay: 0.2 },
+    { top: '56%', left: '45%', label: 'Pondicherry', delay: 0.3 },
+    { top: '44%', left: '60%', label: 'Karnataka', delay: 0.4 },
+    { top: '32%', left: '75%', label: 'Telangana', delay: 0.5 },
+    { top: '20%', left: '90%', label: 'Andhra', delay: 0.6 }
   ];
 
   return (
@@ -37,15 +37,8 @@ export default function Travel() {
                 whileInView={{ pathLength: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.5, ease: "easeInOut" }}
-                d="M20,80 L40,50 L30,30 L60,20 L80,40 L70,70 Z" 
+                d="M15,80 L30,68 L45,56 L60,44 L75,32 L90,20" 
                 fill="none" stroke="currentColor" className="text-neon-green" strokeWidth="0.5" strokeDasharray="2,2" 
-              />
-              <motion.path 
-                initial={{ pathLength: 0 }}
-                whileInView={{ pathLength: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: 1, ease: "easeInOut" }}
-                d="M40,50 L70,70" fill="none" stroke="currentColor" className="text-neon-blue" strokeWidth="0.5" strokeDasharray="2,2" 
               />
             </svg>
 
