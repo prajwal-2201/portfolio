@@ -3,12 +3,12 @@ import { MapPin, Compass, Eye, Map } from 'lucide-react';
 
 export default function Travel() {
   const points = [
-    { top: '80%', left: '15%', label: 'Kerala', delay: 0.1 },
-    { top: '55%', left: '40%', label: 'Tamil Nadu', delay: 0.2 },
-    { top: '80%', left: '65%', label: 'Pondicherry', delay: 0.3 },
-    { top: '55%', left: '85%', label: 'Telangana', delay: 0.4 },
-    { top: '20%', left: '60%', label: 'Andhra', delay: 0.5 },
-    { top: '35%', left: '20%', label: 'Karnataka', delay: 0.6 }
+    { top: '80%', left: '20%', label: 'Kerala', delay: 0.1 },
+    { top: '50%', left: '40%', label: 'Tamil Nadu', delay: 0.2 },
+    { top: '30%', left: '30%', label: 'Karnataka', delay: 0.3 },
+    { top: '20%', left: '60%', label: 'Andhra', delay: 0.4 },
+    { top: '40%', left: '80%', label: 'Telangana', delay: 0.5 },
+    { top: '70%', left: '70%', label: 'Pondicherry', delay: 0.6 }
   ];
 
   return (
@@ -37,8 +37,15 @@ export default function Travel() {
                 whileInView={{ pathLength: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.5, ease: "easeInOut" }}
-                d="M15,80 L40,55 L65,80 L85,55 L60,20 L20,35 Z" 
+                d="M20,80 L40,50 L30,30 L60,20 L80,40 L70,70 Z" 
                 fill="none" stroke="currentColor" className="text-neon-green" strokeWidth="0.5" strokeDasharray="2,2" 
+              />
+              <motion.path 
+                initial={{ pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 1, ease: "easeInOut" }}
+                d="M40,50 L70,70" fill="none" stroke="currentColor" className="text-neon-blue" strokeWidth="0.5" strokeDasharray="2,2" 
               />
             </svg>
 
@@ -50,7 +57,7 @@ export default function Travel() {
                 whileInView={{ scale: 1, opacity: 1 }}
                 transition={{ type: "spring", delay: point.delay, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="absolute flex flex-col items-center gap-2 cursor-pointer z-10"
+                className="absolute flex flex-col items-center gap-2 cursor-pointer z-10 -translate-x-1/2 -translate-y-1"
                 style={{ top: point.top, left: point.left }}
                 whileHover={{ scale: 1.5, zIndex: 20 }}
               >
