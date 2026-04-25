@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { BookOpen, Target, Cloud, ShieldCheck, Terminal, ChevronRight, Activity } from 'lucide-react';
 
 const learningGoals = [
@@ -36,13 +35,7 @@ export default function LearningNow() {
   return (
     <section id="learning" className="py-32 px-6 relative z-10 bg-cyber-black">
       <div className="max-w-4xl mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="mb-16"
-        >
+        <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-12 bg-neon-green" />
             <span className="text-xs font-mono text-neon-green tracking-widest uppercase">Growth Vector</span>
@@ -51,18 +44,14 @@ export default function LearningNow() {
           <p className="text-slate-500 text-lg max-w-2xl font-mono uppercase tracking-widest">
             Continuous system updates in the evolving threat landscape.
           </p>
-        </motion.div>
+        </div>
 
         <div className="space-y-6">
           {learningGoals.map((goal, index) => {
             const Icon = goal.icon;
             return (
-              <motion.div
+              <div
                 key={goal.title}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="glass-panel p-8 border border-white/5 relative group overflow-hidden"
               >
                 <div className="absolute top-0 left-0 w-1 h-full bg-neon-green/20 group-hover:bg-neon-green transition-all" />
@@ -83,11 +72,8 @@ export default function LearningNow() {
                       <span className="text-neon-green">{goal.progress}%</span>
                     </div>
                     <div className="h-1 bg-white/5 rounded-full overflow-hidden border border-white/5">
-                      <motion.div 
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${goal.progress}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: 0.2 }}
+                      <div 
+                        style={{ width: `${goal.progress}%` }}
                         className="h-full bg-neon-green shadow-[0_0_10px_#00ff66]"
                       />
                     </div>
@@ -100,7 +86,7 @@ export default function LearningNow() {
                   <div className="w-1 h-1 bg-white" />
                   <div className="w-1 h-1 bg-white" />
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

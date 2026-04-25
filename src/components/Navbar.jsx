@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { Shield, Menu, X } from 'lucide-react';
 
 const navItems = [
@@ -38,10 +37,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+    <nav
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         scrolled ? 'py-4 glass-panel border-b border-white/5' : 'py-8 bg-transparent'
       }`}
@@ -67,8 +63,7 @@ export default function Navbar() {
               }`}
             >
               {activeItem === item.name && (
-                <motion.div
-                  layoutId="nav-indicator"
+                <div
                   className="absolute bottom-0 left-4 right-4 h-px bg-neon-blue shadow-[0_0_10px_#00f0ff]"
                 />
               )}
@@ -88,6 +83,6 @@ export default function Navbar() {
           <Menu size={24} className="text-white" />
         </div>
       </div>
-    </motion.nav>
+    </nav>
   );
 }

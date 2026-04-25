@@ -1,15 +1,9 @@
-import { motion } from 'framer-motion';
 import { Mail, FileText, Terminal } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 
 export default function QuickActionBar() {
   return (
-    <motion.div 
-      initial={{ x: 100, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ delay: 1, duration: 0.5 }}
-      className="fixed right-6 bottom-1/4 z-50 flex flex-col gap-4"
-    >
+    <div className="fixed right-6 bottom-1/4 z-50 flex flex-col gap-4">
       <button 
         onClick={() => window.dispatchEvent(new CustomEvent('open-terminal'))}
         className="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-slate-400 hover:text-neon-green hover:border-neon-green/50 transition-all group"
@@ -45,6 +39,6 @@ export default function QuickActionBar() {
       >
         <Mail size={20} className="group-hover:scale-110 transition-transform" />
       </a>
-    </motion.div>
+    </div>
   );
 }

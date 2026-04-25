@@ -112,16 +112,6 @@ export default function Journey() {
           </div>
         </div>
       </div>
-      
-      <style jsx>{`
-        @keyframes scan {
-          0% { top: 0; }
-          100% { top: 100%; }
-        }
-        .animate-scan {
-          animation: scan 3s linear infinite;
-        }
-      `}</style>
     </section>
   );
 }

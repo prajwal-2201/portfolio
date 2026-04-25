@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Shield, Server, Search, Target, Cpu, HardDrive, Network, Lock } from 'lucide-react';
 
 const coreCompetencies = [
@@ -32,13 +31,7 @@ export default function Arsenal() {
   return (
     <section id="arsenal" className="py-32 px-6 relative z-10 bg-cyber-black">
       <div className="max-w-6xl mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="text-center mb-20"
-        >
+        <div className="text-center mb-20">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="h-px w-12 bg-neon-purple" />
             <span className="text-xs font-mono text-neon-purple tracking-widest uppercase">System Capabilities</span>
@@ -48,18 +41,14 @@ export default function Arsenal() {
           <p className="text-slate-500 text-lg max-w-2xl mx-auto font-mono uppercase tracking-[0.2em]">
             Deep-stack engineering from kernel to cloud.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {coreCompetencies.map((comp, index) => {
             const Icon = comp.icon;
             return (
-              <motion.div
+              <div
                 key={comp.title}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
                 className="glass-panel p-10 border border-white/5 relative overflow-hidden group hover:border-neon-purple/30 transition-all"
               >
                 <div className="flex items-center gap-6 mb-10">
@@ -88,7 +77,7 @@ export default function Arsenal() {
                 <div className="absolute top-2 right-2 text-[8px] font-mono text-white/5 uppercase select-none">
                   Core_Capability_Matix // {comp.title.replace(' ', '_')}
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

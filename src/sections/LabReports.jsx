@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { ShieldAlert, Crosshair, AlertTriangle, Terminal, ChevronRight, FileSearch } from 'lucide-react';
 
 const research = [
@@ -28,13 +27,7 @@ export default function LabReports() {
   return (
     <section id="simulations" className="py-32 px-6 relative overflow-hidden bg-cyber-darker/50">
       <div className="max-w-6xl mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-20"
-        >
+        <div className="mb-20">
           <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-12 bg-neon-red" />
             <span className="text-xs font-mono text-neon-red tracking-widest uppercase">Intel Intelligence</span>
@@ -43,18 +36,11 @@ export default function LabReports() {
           <p className="text-slate-500 text-lg max-w-2xl font-mono uppercase tracking-widest">
             Analyzing attack surface to build resilient defense.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {research.map((report, index) => (
-            <motion.div
-              key={report.id}
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="group relative"
-            >
+            <div key={report.id} className="group relative">
               <div className="absolute -inset-1 bg-neon-red/10 blur group-hover:bg-neon-red/20 transition-all" />
               <div className="relative h-full bg-black/60 border border-white/5 p-10 rounded-none hud-border overflow-hidden">
                 <div className="flex justify-between items-start mb-10">
@@ -87,14 +73,14 @@ export default function LabReports() {
 
                 <div className="mt-12 pt-6 border-t border-white/5 flex items-center justify-between">
                   <div className="flex items-center gap-2 text-[10px] font-mono text-neon-red">
-                    <Activity size={12} /> IMPACT: {report.impact}
+                    <ShieldAlert size={12} /> IMPACT: {report.impact}
                   </div>
                   <div className="text-[10px] font-mono text-slate-500 group-hover:text-white transition-colors flex items-center gap-2">
                     FULL_REPORT <ChevronRight size={14} />
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

@@ -1,27 +1,6 @@
-import { motion } from 'framer-motion';
 import { Terminal, Shield, Lock, Activity, ChevronRight, Zap } from 'lucide-react';
 
 export default function Hero() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: 'easeOut' },
-    },
-  };
-
   return (
     <section id="hero" className="min-h-screen pt-32 pb-20 px-6 flex flex-col items-center justify-center relative overflow-hidden">
       {/* HUD Elements */}
@@ -43,44 +22,30 @@ export default function Hero() {
         </div>
       </div>
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="relative z-10 text-center"
-      >
-        <motion.div 
-          variants={itemVariants}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded border border-neon-blue/20 bg-neon-blue/5 text-neon-blue text-[10px] font-mono mb-8 uppercase tracking-widest glow-text-blue"
-        >
+      <div className="relative z-10 text-center">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-neon-blue/20 bg-neon-blue/5 text-neon-blue text-[10px] font-mono mb-8 uppercase tracking-widest glow-text-blue">
           <Terminal size={12} /> Identity_Verified // SOC_ENGINEER
-        </motion.div>
+        </div>
 
-        <motion.h1 
-          variants={itemVariants} 
-          className="text-5xl md:text-8xl font-black mb-6 leading-tight tracking-tighter text-white uppercase terminal-text"
-        >
+        <h1 className="text-5xl md:text-8xl font-black mb-6 leading-tight tracking-tighter text-white uppercase terminal-text">
           Cybersecurity<br />
           <span className="text-neon-blue">Engineer</span>
-        </motion.h1>
+        </h1>
 
-        <motion.div variants={itemVariants} className="mb-12 relative inline-block">
+        <div className="mb-12 relative inline-block">
           <div className="absolute -inset-1 bg-neon-blue/20 blur-xl rounded-full" />
           <div className="relative glass-panel px-6 py-4 border-l-4 border-l-neon-blue rounded-none hud-border">
             <p className="text-xl md:text-2xl text-slate-100 font-mono tracking-tight leading-relaxed">
               I build systems that <span className="text-neon-blue font-bold italic underline decoration-neon-blue/30 underline-offset-4">detect</span> and <span className="text-neon-red font-bold italic underline decoration-neon-red/30 underline-offset-4">respond</span> to<br className="hidden md:block" /> real-world cyber threats.
             </p>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.p 
-          variants={itemVariants} 
-          className="text-sm md:text-lg text-slate-500 max-w-2xl mx-auto mb-12 font-mono uppercase tracking-[0.2em]"
-        >
+        <p className="text-sm md:text-lg text-slate-500 max-w-2xl mx-auto mb-12 font-mono uppercase tracking-[0.2em]">
           Focused on threat detection, incident response, and defensive engineering.
-        </motion.p>
+        </p>
 
-        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row justify-center items-center gap-6">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
           <a
             href="#missions"
             className="group relative px-10 py-5 bg-white text-black font-bold uppercase tracking-widest text-[10px] flex items-center gap-2 hover:bg-neon-blue transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_#00f0ff]"
@@ -94,8 +59,8 @@ export default function Hero() {
           >
             Establish_Contact
           </a>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
       {/* Background visual - Large subtle text */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none select-none opacity-[0.03]">
@@ -104,15 +69,10 @@ export default function Hero() {
         </div>
       </div>
       
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-      >
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
         <span className="text-[8px] font-mono text-slate-600 tracking-[0.3em] uppercase">Scroll_To_Observe</span>
         <div className="w-px h-12 bg-gradient-to-b from-neon-blue/20 to-transparent" />
-      </motion.div>
+      </div>
     </section>
   );
 }

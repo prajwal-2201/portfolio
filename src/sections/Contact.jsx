@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Mail, FileText, Download, Send, Globe, Shield } from 'lucide-react';
 import { FaGithub as Github, FaLinkedin as Linkedin } from 'react-icons/fa';
 
@@ -6,13 +5,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-32 px-6 relative z-10 bg-cyber-black">
       <div className="max-w-6xl mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="glass-panel relative overflow-hidden border border-white/5"
-        >
+        <div className="glass-panel relative overflow-hidden border border-white/5">
           {/* HUD Accents */}
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-blue via-neon-purple to-neon-green opacity-50" />
           <div className="absolute top-4 left-4 text-[8px] font-mono text-slate-700 uppercase tracking-[0.4em]">Establish_Secure_Channel</div>
@@ -32,7 +25,7 @@ export default function Contact() {
                   href="mailto:vprajwal2204@gmail.com"
                   className="px-8 py-5 bg-white text-black font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-3 hover:bg-neon-blue transition-all group"
                 >
-                  <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  <Send size={16} />
                   Send_Transmission
                 </a>
                 <a 
@@ -80,7 +73,7 @@ export default function Contact() {
                 <div className="absolute top-0 left-0 w-1 h-full bg-neon-green" />
                 <div className="flex items-center gap-4">
                   <div className="relative flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-green opacity-75"></span>
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-neon-green opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-neon-green"></span>
                   </div>
                   <div>
@@ -91,7 +84,7 @@ export default function Contact() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
         
         <div className="mt-20 flex flex-col md:flex-row items-center justify-between gap-6 text-slate-600 font-mono text-[8px] uppercase tracking-[0.4em]">
           <div className="flex items-center gap-2">

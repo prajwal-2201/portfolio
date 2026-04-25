@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { ExternalLink, Terminal, Code, Cpu, Shield, Zap } from 'lucide-react';
 import { FaGithub as Github } from 'react-icons/fa';
 
@@ -33,13 +32,7 @@ export default function GithubHighlights() {
   return (
     <section id="github" className="py-32 px-6 relative z-10 bg-cyber-darker/30">
       <div className="max-w-6xl mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="mb-20"
-        >
+        <div className="mb-20">
           <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-12 bg-neon-blue" />
             <span className="text-xs font-mono text-neon-blue tracking-widest uppercase">Version Control</span>
@@ -48,16 +41,12 @@ export default function GithubHighlights() {
           <p className="text-slate-500 text-lg max-w-2xl font-mono uppercase tracking-widest">
             Engineering evidence. Peer-reviewed implementations.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {highlightedRepos.map((repo, index) => (
-            <motion.div
+            <div
               key={repo.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
               className="glass-panel group relative flex flex-col p-8 border border-white/5 hover:border-neon-blue/30 transition-all cursor-default"
               onClick={() => window.open(repo.link, '_blank')}
             >
@@ -91,16 +80,11 @@ export default function GithubHighlights() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
         
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-20 p-8 border border-dashed border-white/10 rounded text-center"
-        >
+        <div className="mt-20 p-8 border border-dashed border-white/10 rounded text-center">
           <p className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-4">Interested in more low-level implementations?</p>
           <a 
             href="https://github.com/prajwal-2201" 
@@ -111,7 +95,7 @@ export default function GithubHighlights() {
             Explore_Full_Repository_Network
             <Github size={14} />
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

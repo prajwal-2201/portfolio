@@ -1,36 +1,30 @@
-import { useEffect } from 'react';
 import Navbar from './components/Navbar';
-import QuickActionBar from './components/QuickActionBar';
 import Hero from './sections/Hero';
 import Journey from './sections/Journey';
 import Missions from './sections/Missions';
-import Arsenal from './sections/Arsenal';
-import Certifications from './sections/Certifications';
 import LabReports from './sections/LabReports';
-import Contact from './sections/Contact';
-import TerminalModal from './components/TerminalModal';
+import Arsenal from './sections/Arsenal';
 import GithubHighlights from './sections/GithubHighlights';
 import LearningNow from './sections/LearningNow';
+import Certifications from './sections/Certifications';
+import Contact from './sections/Contact';
+import TerminalModal from './components/TerminalModal';
+import QuickActionBar from './components/QuickActionBar';
 
 function App() {
-  // Smooth scroll behavior for anchor links
-  useEffect(() => {
-    document.documentElement.style.scrollBehavior = 'smooth';
-    return () => {
-      document.documentElement.style.scrollBehavior = 'auto';
-    };
-  }, []);
-
   return (
-    <div className="relative bg-cyber-dark min-h-screen text-slate-300 font-sans selection:bg-neon-purple/30 selection:text-white overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#050505] text-slate-300">
       <TerminalModal />
+      <QuickActionBar />
       <div className="scanline" />
-      <div className="fixed inset-0 pointer-events-none z-50 border-[20px] border-black/10 mix-blend-overlay" />
+      
+      {/* Decorative Overlay - Lowered Z-Index */}
+      <div className="fixed inset-0 pointer-events-none z-0 border-[10px] border-white/5" />
+      
       <Navbar />
       <Hero />
-      <QuickActionBar />
       
-      <main className="relative">
+      <main className="relative z-10">
         <Journey />
         <Missions />
         <LabReports />
@@ -40,7 +34,8 @@ function App() {
         <Certifications />
         <Contact />
       </main>
-      <footer className="py-12 border-t border-white/5 bg-cyber-darker text-center text-slate-500 font-mono text-xs">
+      
+      <footer className="py-12 border-t border-white/5 bg-[#020202] text-center text-slate-500 font-mono text-[10px] uppercase tracking-widest relative z-10">
         <p>© 2024 SECURITY_OPERATIONS_CENTER // PRAJWAL_V</p>
       </footer>
     </div>

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Terminal, Activity, Layers, Code, Zap, Server, Shield, Database } from 'lucide-react';
 import { FaGithub as Github } from 'react-icons/fa';
 
@@ -60,13 +59,7 @@ export default function Missions() {
   return (
     <section id="missions" className="py-32 px-6 relative z-10">
       <div className="max-w-6xl mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="mb-20"
-        >
+        <div className="mb-20">
           <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-12 bg-neon-blue" />
             <span className="text-xs font-mono text-neon-blue tracking-widest uppercase">Weaponized Systems</span>
@@ -75,18 +68,11 @@ export default function Missions() {
           <p className="text-slate-500 text-lg max-w-2xl font-mono uppercase tracking-widest">
             Engineering depth. Real metrics. Zero filler.
           </p>
-        </motion.div>
+        </div>
 
         <div className="space-y-32">
           {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="relative"
-            >
+            <div key={project.id} className="relative">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                 {/* Left Side - Metrics & Impact */}
                 <div className="lg:col-span-4 space-y-6">
@@ -161,7 +147,7 @@ export default function Missions() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

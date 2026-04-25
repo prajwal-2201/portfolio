@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { X, Terminal as TermIcon, ChevronRight } from 'lucide-react';
 
 export default function TerminalModal() {
@@ -85,78 +84,70 @@ export default function TerminalModal() {
     setInput('');
   };
 
+  if (!isOpen) return null;
+
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
-          onClick={() => setIsOpen(false)}
-        >
-          <motion.div
-            initial={{ scale: 0.9, y: 20 }}
-            animate={{ scale: 1, y: 0 }}
-            exit={{ scale: 0.9, y: 20 }}
-            className="w-full max-w-2xl bg-[#0a0a0a] rounded-lg border border-neon-green/30 overflow-hidden shadow-[0_0_50px_rgba(0,255,102,0.1)]"
-            onClick={(e) => e.stopPropagation()}
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+      onClick={() => setIsOpen(false)}
+    >
+      <div
+        className="w-full max-w-2xl bg-[#0a0a0a] rounded-lg border border-neon-green/30 overflow-hidden shadow-[0_0_50px_rgba(0,255,102,0.1)]"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Terminal Header */}
+        <div className="flex items-center justify-between px-4 py-2 bg-[#1a1a1a] border-b border-white/10">
+          <div className="flex items-center gap-2 text-slate-400 font-mono text-sm">
+            <TermIcon size={14} />
+            <span>root@prajwal-os:~</span>
+          </div>
+          <button 
+            onClick={() => setIsOpen(false)}
+            className="text-slate-500 hover:text-red-500 transition-colors"
           >
-            {/* Terminal Header */}
-            <div className="flex items-center justify-between px-4 py-2 bg-[#1a1a1a] border-b border-white/10">
-              <div className="flex items-center gap-2 text-slate-400 font-mono text-sm">
-                <TermIcon size={14} />
-                <span>root@prajwal-os:~</span>
-              </div>
-              <button 
-                onClick={() => setIsOpen(false)}
-                className="text-slate-500 hover:text-red-500 transition-colors"
-              >
-                <X size={18} />
-              </button>
-            </div>
+            <X size={18} />
+          </button>
+        </div>
 
-            {/* Terminal Body */}
-            <div 
-              ref={scrollRef}
-              className="p-6 h-[400px] overflow-y-auto font-mono text-sm md:text-base text-neon-green/90 leading-relaxed"
-              onClick={() => inputRef.current?.focus()}
-            >
-              {isBooting ? (
-                <div className="flex flex-col gap-1">
-                  <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}>BOOTING SYSTEM...</motion.p>
-                  <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>LOADING KERNEL 5.15.0-generic</motion.p>
-                  <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}>NETWORK_PROTOCOL: SECURE</motion.p>
-                  <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}>WELCOME TO PRAJWAL_OS V2.0</motion.p>
-                </div>
-              ) : (
-                <>
-                  <div className="space-y-1">
-                    {history.map((line, i) => (
-                      <div key={i} className="flex gap-2">
-                        {line.type === 'input' && <span className="text-neon-blue">root@prajwal:~$</span>}
-                        <span className="whitespace-pre-wrap">{line.content}</span>
-                      </div>
-                    ))}
+        {/* Terminal Body */}
+        <div 
+          ref={scrollRef}
+          className="p-6 h-[400px] overflow-y-auto font-mono text-sm md:text-base text-neon-green/90 leading-relaxed"
+          onClick={() => inputRef.current?.focus()}
+        >
+          {isBooting ? (
+            <div className="flex flex-col gap-1">
+              <p>BOOTING SYSTEM...</p>
+              <p>LOADING KERNEL 5.15.0-generic</p>
+              <p>NETWORK_PROTOCOL: SECURE</p>
+              <p>WELCOME TO PRAJWAL_OS V2.0</p>
+            </div>
+          ) : (
+            <>
+              <div className="space-y-1">
+                {history.map((line, i) => (
+                  <div key={i} className="flex gap-2">
+                    {line.type === 'input' && <span className="text-neon-blue">root@prajwal:~$</span>}
+                    <span className="whitespace-pre-wrap">{line.content}</span>
                   </div>
+                ))}
+              </div>
 
-                  <form onSubmit={handleCommand} className="flex gap-2 mt-2">
-                    <span className="text-neon-blue">root@prajwal:~$</span>
-                    <input 
-                      ref={inputRef}
-                      autoFocus
-                      type="text"
-                      value={input}
-                      onChange={(e) => setInput(e.target.value)}
-                      className="flex-1 bg-transparent border-none outline-none text-neon-green caret-neon-green"
-                    />
-                  </form>
-                </>
-              )}
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+              <form onSubmit={handleCommand} className="flex gap-2 mt-2">
+                <span className="text-neon-blue">root@prajwal:~$</span>
+                <input 
+                  ref={inputRef}
+                  autoFocus
+                  type="text"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  className="flex-1 bg-transparent border-none outline-none text-neon-green caret-neon-green"
+                />
+              </form>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }
