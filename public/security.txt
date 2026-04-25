@@ -1,0 +1,6 @@
+Contact: mailto:vprajwal2204@gmail.com
+Expires: 2027-04-25T10:00:00.000Z
+Preferred-Languages: en
+Canonical: https://github.com/prajwal-2201/portfolio/blob/main/public/security.txt
+Policy: https://github.com/prajwal-2201/portfolio/blob/main/README.md
+Hiring: https://prajwal-2201.github.io/portfolio/
