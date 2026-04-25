@@ -1,149 +1,158 @@
-import { Terminal, Activity, Layers, Code, Zap, Server, Shield, Database } from 'lucide-react';
+import { Terminal, Activity, Layers, Code, Zap, Server, Shield, Database, ExternalLink, AlertCircle, Settings, BarChart3 } from 'lucide-react';
 import { FaGithub as Github } from 'react-icons/fa';
 
 const projects = [
   {
     id: "SOC-X1",
     title: "CyberSentinel – SOC Platform",
-    impact: "500+ EPS",
-    impactDesc: "Security Events Per Second",
-    efficiency: "35%",
-    efficiencyDesc: "Alert Fatigue Reduction",
-    whatItDoes: "Real-time enterprise-grade log orchestration and threat correlation platform.",
-    techStack: ["Python", "Elasticsearch", "Logstash", "Kibana", "Redis"],
-    whatIDid: [
-      "Built high-throughput log ingestion pipeline",
-      "Engineered rule-based correlation engine",
-      "Designed analyst-first security dashboard",
-      "Optimized query performance for petabyte-scale data"
-    ],
-    github: "https://github.com/prajwal-2201"
+    problem: "Enterprise security teams struggle with alert fatigue and fragmented log data across massive infrastructure.",
+    solution: "A high-performance log orchestration platform that centralizes ingestion and correlates events in real-time.",
+    impact: "Reduces alert fatigue by 35% through automated deduplication; Handles 500+ security events/sec.",
+    techStack: ["Python", "ELK Stack", "Redis", "Docker"],
+    github: "https://github.com/prajwal-2201",
+    demo: "#",
+    metrics: [
+      { label: "Throughput", value: "500+ EPS" },
+      { label: "Reduction", value: "35%" }
+    ]
   },
   {
     id: "IDS-X2",
     title: "Host-Based IDS (Sniffer)",
-    impact: "90%+",
-    impactDesc: "Detection Accuracy (SQLi/XSS)",
-    efficiency: "10k+",
-    efficiencyDesc: "Tested Network Packets",
-    whatItDoes: "Signature-based threat detection system for deep packet inspection.",
-    techStack: ["Python", "Suricata", "Scapy", "Wireshark"],
-    whatIDid: [
-      "Authored 50+ custom Suricata signatures",
-      "Developed real-time traffic analysis logic",
-      "Integrated automated block-listing hooks",
-      "Performed stress-testing under heavy packet load"
-    ],
-    github: "https://github.com/prajwal-2201/Intrusion-Detection-System-"
+    problem: "Generic network IDS systems often miss sophisticated application-layer attacks like fragmented SQLi.",
+    solution: "Built a signature-based detection system focused on deep packet inspection and fragmentation reassembly.",
+    impact: "Achieved 90%+ detection accuracy against OWASP Top 10 payloads; Analyzed 10k+ malicious packets.",
+    techStack: ["Python", "Scapy", "Suricata", "Wireshark"],
+    github: "https://github.com/prajwal-2201/Intrusion-Detection-System-",
+    demo: "#",
+    metrics: [
+      { label: "Accuracy", value: "92%" },
+      { label: "Packets", value: "10k+" }
+    ]
   },
   {
     id: "KERNEL-X3",
     title: "DockSmith – Container Runtime",
-    impact: "LOW-LEVEL",
-    impactDesc: "Linux Kernel Engineering",
-    efficiency: "100%",
-    efficiencyDesc: "Process Isolation achieved",
-    whatItDoes: "Lightweight container runtime implemented from scratch focusing on kernel isolation.",
+    problem: "Standard container runtimes are complex; understanding kernel-level isolation is critical for security engineers.",
+    solution: "A 'from-scratch' container runtime implemented using direct Linux syscalls for process isolation.",
+    impact: "100% Process isolation achieved via PID/Mount namespaces; zero-dependency runtime architecture.",
     techStack: ["Go", "Linux Namespaces", "cgroups", "chroot"],
-    whatIDid: [
-      "Implemented PID, Mount, and Network isolation",
-      "Built cgroups resource restriction controller",
-      "Designed custom image extraction and layering",
-      "Engineered secure container lifecycle management"
-    ],
-    github: "https://github.com/prajwal-2201/DockSmith"
+    github: "https://github.com/prajwal-2201/DockSmith",
+    demo: "#",
+    metrics: [
+      { label: "Isolation", value: "Kernel-Level" },
+      { label: "Overhead", value: "<1%" }
+    ]
   }
 ];
 
 export default function Missions() {
   return (
-    <section id="missions" className="py-32 px-6 relative z-10">
+    <section id="missions" className="py-32 px-6 relative z-10 bg-cyber-black">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-20">
+        <div className="mb-24">
           <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-12 bg-neon-blue" />
             <span className="text-xs font-mono text-neon-blue tracking-widest uppercase">Weaponized Systems</span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-black mb-6 uppercase tracking-tighter text-white">Active <span className="text-neon-blue">Missions</span></h2>
-          <p className="text-slate-500 text-lg max-w-2xl font-mono uppercase tracking-widest">
-            Engineering depth. Real metrics. Zero filler.
+          <h2 className="text-4xl md:text-7xl font-black mb-6 uppercase tracking-tighter text-white">Active <span className="text-neon-blue">Missions</span></h2>
+          <p className="text-slate-500 text-lg max-w-2xl font-mono uppercase tracking-[0.2em] leading-relaxed">
+            Technical depth quantified. Solving real-world security bottlenecks.
           </p>
         </div>
 
-        <div className="space-y-32">
+        <div className="space-y-40">
           {projects.map((project, index) => (
-            <div key={project.id} className="relative">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                {/* Left Side - Metrics & Impact */}
-                <div className="lg:col-span-4 space-y-6">
-                  <div className="glass-panel p-8 border-l-4 border-l-neon-blue hud-border">
-                    <div className="text-[10px] font-mono text-slate-500 mb-2">CRITICAL_METRIC_01</div>
-                    <div className="text-5xl font-black text-white terminal-text mb-1">{project.impact}</div>
-                    <div className="text-[10px] font-mono text-neon-blue uppercase tracking-widest">{project.impactDesc}</div>
+            <div key={project.id} className="group relative">
+              {/* Background ID text */}
+              <div className="absolute -top-20 -left-10 text-[150px] font-black text-white/[0.02] select-none pointer-events-none font-mono">
+                {project.id.split('-')[1]}
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 relative">
+                {/* Visual / Metrics Side */}
+                <div className="lg:col-span-5 space-y-6 order-2 lg:order-1">
+                  <div className="grid grid-cols-2 gap-4">
+                    {project.metrics.map((m, i) => (
+                      <div key={i} className="glass-panel p-6 border-t-2 border-t-neon-blue/50 hud-border bg-white/[0.02]">
+                        <div className="text-3xl font-black text-white mb-1 font-mono">{m.value}</div>
+                        <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">{m.label}</div>
+                      </div>
+                    ))}
                   </div>
                   
-                  <div className="glass-panel p-8 border-l-4 border-l-neon-green hud-border">
-                    <div className="text-[10px] font-mono text-slate-500 mb-2">CRITICAL_METRIC_02</div>
-                    <div className="text-5xl font-black text-white terminal-text mb-1">{project.efficiency}</div>
-                    <div className="text-[10px] font-mono text-neon-green uppercase tracking-widest">{project.efficiencyDesc}</div>
+                  <div className="glass-panel p-8 border border-white/5 bg-white/[0.01] relative overflow-hidden group-hover:border-neon-blue/20 transition-all">
+                    <div className="flex items-center gap-3 mb-6">
+                      <BarChart3 size={18} className="text-neon-blue" />
+                      <h4 className="text-[10px] font-mono text-white uppercase tracking-[0.3em]">Operational_Impact</h4>
+                    </div>
+                    <p className="text-sm text-slate-400 font-mono leading-relaxed italic">
+                      " {project.impact} "
+                    </p>
+                    <div className="absolute bottom-0 right-0 p-4 opacity-5">
+                      <Activity size={80} />
+                    </div>
                   </div>
                 </div>
 
-                {/* Right Side - Engineering Depth */}
-                <div className="lg:col-span-8 flex flex-col">
-                  <div className="flex items-center justify-between mb-8">
-                    <div>
-                      <span className="text-xs font-mono text-slate-500 mb-2 block">{project.id} // SYSTEM_CORE</span>
-                      <h3 className="text-3xl md:text-4xl font-bold text-white group-hover:text-neon-blue transition-colors">{project.title}</h3>
-                    </div>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-neon-blue/50 hover:text-neon-blue transition-all">
-                      <Github size={24} />
-                    </a>
+                {/* Content Side */}
+                <div className="lg:col-span-7 flex flex-col order-1 lg:order-2">
+                  <div className="flex items-center gap-4 mb-6">
+                    <span className="text-[10px] font-mono text-neon-blue bg-neon-blue/10 px-3 py-1 border border-neon-blue/20">{project.id}</span>
+                    <div className="h-px flex-grow bg-white/10" />
                   </div>
+                  
+                  <h3 className="text-4xl md:text-5xl font-black text-white mb-10 group-hover:text-neon-blue transition-colors uppercase tracking-tight">
+                    {project.title}
+                  </h3>
 
-                  <p className="text-lg text-slate-300 mb-10 font-light leading-relaxed">
-                    {project.whatItDoes}
-                  </p>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-10">
-                    <div>
-                      <h4 className="flex items-center gap-2 text-[10px] font-mono text-neon-purple uppercase tracking-[0.2em] mb-6">
-                        <Code size={14} /> Engineering_Tasks
-                      </h4>
-                      <ul className="space-y-3">
-                        {project.whatIDid.map((task, i) => (
-                          <li key={i} className="flex items-start gap-3 text-sm text-slate-400 group">
-                            <span className="text-neon-purple mt-1">/</span>
-                            {task}
-                          </li>
-                        ))}
-                      </ul>
+                  <div className="space-y-8 mb-12">
+                    <div className="flex gap-6">
+                      <div className="flex-shrink-0 mt-1">
+                        <AlertCircle size={20} className="text-neon-red" />
+                      </div>
+                      <div>
+                        <h4 className="text-[10px] font-mono text-neon-red uppercase tracking-widest mb-2">The_Problem</h4>
+                        <p className="text-slate-300 text-lg leading-relaxed">{project.problem}</p>
+                      </div>
                     </div>
-                    
-                    <div>
-                      <h4 className="flex items-center gap-2 text-[10px] font-mono text-neon-green uppercase tracking-[0.2em] mb-6">
-                        <Layers size={14} /> Technology_Stack
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {project.techStack.map((tech, i) => (
-                          <span key={i} className="px-3 py-1.5 text-[10px] font-mono rounded bg-white/5 border border-white/10 text-slate-400">
-                            {tech}
-                          </span>
-                        ))}
+
+                    <div className="flex gap-6">
+                      <div className="flex-shrink-0 mt-1">
+                        <Settings size={20} className="text-neon-green" />
+                      </div>
+                      <div>
+                        <h4 className="text-[10px] font-mono text-neon-green uppercase tracking-widest mb-2">The_Solution</h4>
+                        <p className="text-slate-300 text-lg leading-relaxed">{project.solution}</p>
                       </div>
                     </div>
                   </div>
-                  
-                  {/* System Flow Visualization (Placeholder) */}
-                  <div className="mt-auto p-4 rounded bg-white/5 border border-white/5 flex items-center justify-between opacity-50 grayscale hover:grayscale-0 transition-all cursor-default">
-                    <div className="flex items-center gap-4">
-                      <Server size={16} className="text-neon-blue" />
-                      <div className="h-px w-8 bg-neon-blue/20" />
-                      <Database size={16} className="text-neon-purple" />
-                      <div className="h-px w-8 bg-neon-purple/20" />
-                      <Shield size={16} className="text-neon-green" />
-                    </div>
-                    <span className="text-[8px] font-mono text-slate-600 tracking-widest uppercase">Visualizing Architecture Flow // ENCRYPTED_LINK</span>
+
+                  <div className="flex flex-wrap gap-2 mb-12">
+                    {project.techStack.map((tech, i) => (
+                      <span key={i} className="px-3 py-1.5 text-[10px] font-mono rounded bg-white/5 border border-white/10 text-slate-500 group-hover:text-slate-300 transition-colors">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center gap-6">
+                    <a 
+                      href={project.github} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 px-8 py-4 bg-white text-black font-bold uppercase tracking-widest text-[10px] hover:bg-neon-blue transition-all"
+                    >
+                      <Github size={16} />
+                      View_Source
+                    </a>
+                    <a 
+                      href={project.demo} 
+                      className="flex items-center gap-3 px-8 py-4 border border-white/10 text-white font-bold uppercase tracking-widest text-[10px] hover:bg-white/5 transition-all"
+                    >
+                      <ExternalLink size={16} />
+                      Live_Demo
+                    </a>
                   </div>
                 </div>
               </div>

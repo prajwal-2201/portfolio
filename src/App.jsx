@@ -13,13 +13,13 @@ import QuickActionBar from './components/QuickActionBar';
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-[#050505] text-slate-300">
+    <div className="relative min-h-screen bg-[#050505] text-slate-300 bg-grid">
       <TerminalModal />
       <QuickActionBar />
       <div className="scanline" />
       
       {/* Decorative Overlay - Lowered Z-Index */}
-      <div className="fixed inset-0 pointer-events-none z-0 border-[10px] border-white/5" />
+      <div className="fixed inset-0 pointer-events-none z-0 border-[10px] border-white/[0.02]" />
       
       <Navbar />
       <Hero />
@@ -36,7 +36,7 @@ function App() {
       </main>
       
       <footer className="py-12 border-t border-white/5 bg-[#020202] text-center text-slate-500 font-mono text-[10px] uppercase tracking-widest relative z-10">
-        <p>© 2024 SECURITY_OPERATIONS_CENTER // PRAJWAL_V</p>
+        <p>© 2025 SECURITY_OPERATIONS_CENTER // PRAJWAL_V</p>
       </footer>
     </div>
   );
