@@ -5,9 +5,10 @@ const navItems = [
   { name: 'Home', href: '#hero' },
   { name: 'Journey', href: '#journey' },
   { name: 'Missions', href: '#missions' },
-  { name: 'Briefings', href: '#briefings' },
+  { name: 'Simulations', href: '#simulations' },
   { name: 'Arsenal', href: '#arsenal' },
-  { name: 'Travel', href: '#travel' },
+  { name: 'GitHub', href: '#github' },
+  { name: 'Learning', href: '#learning' },
   { name: 'Certifications', href: '#certifications' },
   { name: 'Contact', href: '#contact' },
 ];

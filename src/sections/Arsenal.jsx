@@ -1,34 +1,34 @@
 import { motion } from 'framer-motion';
-import { Shield, Code2, Database, PenTool } from 'lucide-react';
+import { Shield, Server, Search, Target } from 'lucide-react';
 
 const categories = [
   {
-    title: "Cybersecurity",
+    title: "Detection Engineering",
     icon: Shield,
     color: "text-red-400",
     glow: "group-hover:shadow-[0_0_30px_rgba(248,113,113,0.15)] group-hover:border-red-400/50",
-    skills: ["Intrusion Detection", "Log Analysis", "Vulnerability Assessment", "OWASP Top 10", "Cryptography"]
+    skills: ["Suricata/Snort Rules", "YARA Signatures", "SIEM (ELK, Splunk)", "Threat Modeling"]
   },
   {
-    title: "Backend",
-    icon: Database,
+    title: "Systems Architecture",
+    icon: Server,
     color: "text-neon-purple",
     glow: "group-hover:shadow-[0_0_30px_rgba(176,38,255,0.15)] group-hover:border-neon-purple/50",
-    skills: ["Node.js", "Python", "Java", "SQL", "REST APIs"]
+    skills: ["Linux Namespaces", "cgroups", "Docker/Containers", "Network Topologies"]
   },
   {
-    title: "Frontend",
-    icon: Code2,
+    title: "Incident Response",
+    icon: Search,
     color: "text-neon-green",
     glow: "group-hover:shadow-[0_0_30px_rgba(0,255,102,0.15)] group-hover:border-neon-green/50",
-    skills: ["React", "JavaScript", "Tailwind CSS", "HTML/CSS", "Framer Motion"]
+    skills: ["Log Analysis", "Packet Inspection (PCAP)", "Memory Forensics", "Malware Sandbox"]
   },
   {
-    title: "Tools",
-    icon: PenTool,
+    title: "Offensive Tactics",
+    icon: Target,
     color: "text-neon-blue",
     glow: "group-hover:shadow-[0_0_30px_rgba(0,240,255,0.15)] group-hover:border-neon-blue/50",
-    skills: ["Linux / Kali", "Git & GitHub", "Docker", "Burp Suite", "Wireshark"]
+    skills: ["OWASP Top 10", "Vulnerability Scanning", "Network Exploitation", "Privilege Escalation"]
   }
 ];
 
@@ -56,9 +56,14 @@ export default function Arsenal() {
           transition={{ duration: 0.4 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">The <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-purple to-pink-500">Arsenal</span></h2>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="h-px w-12 bg-neon-purple" />
+            <span className="text-xs font-mono text-neon-purple tracking-widest uppercase">Competencies</span>
+            <div className="h-px w-12 bg-neon-purple" />
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-purple to-pink-500">Depth</span></h2>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto font-light">
-            Categorized skill tree structured for immediate deployment.
+            Core capabilities spanning systems, defense, and detection.
           </p>
         </motion.div>
 
@@ -86,13 +91,12 @@ export default function Arsenal() {
                 
                 <div className="flex flex-wrap gap-2 mt-auto">
                   {category.skills.map((skill) => (
-                    <motion.div 
+                    <div 
                       key={skill} 
-                      whileHover={{ scale: 1.05 }}
-                      className="relative px-3 py-1.5 bg-cyber-darker/80 rounded border border-white/5 hover:border-white/20 hover:text-white transition-all cursor-default group/skill"
+                      className="relative px-3 py-1.5 bg-cyber-darker/80 rounded border border-white/5 hover:border-white/20 transition-all cursor-default group/skill"
                     >
                       <span className="text-xs font-medium text-slate-400 group-hover/skill:text-white transition-colors">{skill}</span>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </motion.div>

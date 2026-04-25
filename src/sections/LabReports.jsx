@@ -1,48 +1,39 @@
 import { motion } from 'framer-motion';
-import { Shield, Lock, Search, FileText, ChevronRight } from 'lucide-react';
+import { ShieldAlert, Crosshair, AlertTriangle } from 'lucide-react';
 
-const reports = [
+const simulations = [
   {
-    id: "LR-001",
-    title: "Network Infiltration & IDS Bypass",
-    category: "Red Team",
-    date: "2024-03-12",
-    description: "Deep dive into bypassing advanced Intrusion Detection Systems using packet fragmentation and timing-based obfuscation.",
-    icon: Shield,
+    id: "SIM-01",
+    attack: "IDS Bypass via Packet Fragmentation",
+    icon: Crosshair,
     color: "text-red-400",
-    tags: ["Network Security", "IDS", "Stealth"],
-    link: "https://github.com/prajwal-2201/Intrusion-Detection-System-/blob/main/report/report.pdf"
+    howItWorks: "Attackers split malicious payloads into small overlapping fragments, causing the IDS state engine to misassemble the packets and fail to match signatures.",
+    howToDetect: "Monitor for unusually high rates of IP fragmentation, overlapping offsets, and out-of-order fragment delivery.",
+    howToFix: "Configure target-based fragment reassembly (e.g., frag3 in Snort) to strictly mirror the host OS's TCP/IP stack behavior."
   },
   {
-    id: "LR-002",
-    title: "Web Application Penetration Testing",
-    category: "Vulnerability Research",
-    date: "2024-02-20",
-    description: "Detailed security audit of web architectures, documenting exploitation paths for critical vulnerabilities.",
-    icon: Search,
+    id: "SIM-02",
+    attack: "DVWA: Command Injection",
+    icon: AlertTriangle,
+    color: "text-neon-purple",
+    howItWorks: "User input is passed directly to a system shell without sanitization, allowing attackers to append shell operators (like `;` or `&&`) to execute arbitrary commands.",
+    howToDetect: "Analyze web server logs for suspicious shell meta-characters and monitor child processes spawned by the web server service.",
+    howToFix: "Use parameterized APIs (like `execFile`) instead of passing strings to a shell, and strictly validate/sanitize all user inputs."
+  },
+  {
+    id: "SIM-03",
+    attack: "OWASP: Broken Access Control",
+    icon: ShieldAlert,
     color: "text-neon-blue",
-    tags: ["Web Security", "PenTesting", "OWASP"],
-    link: "https://github.com/prajwal-2201/Web-Application-Penetration-Testing/blob/main/Web_Application_Penetration_Testing_Report_Prajwal_V.pdf"
-  },
-  {
-    id: "LR-003",
-    title: "Air Quality Pattern Analysis",
-    category: "Data Science",
-    date: "2024-01-05",
-    description: "Researching and predicting environmental patterns using advanced analytical models and data processing.",
-    icon: Lock,
-    color: "text-neon-green",
-    tags: ["Analytics", "Prediction", "Research"],
-    link: "https://github.com/prajwal-2201/Predicting-and-Analyzing-Air-Quality-Patterns/blob/main/REPORT.pdf"
+    howItWorks: "An application fails to verify if a user has permissions for a requested resource, allowing them to modify URL parameters (like ID) to access other users' data.",
+    howToDetect: "Implement robust audit logging for all authorization failures and monitor for excessive '403 Forbidden' or anomalous data access patterns.",
+    howToFix: "Enforce authorization checks at the data layer for every single request, defaulting to deny."
   }
 ];
 
 export default function LabReports() {
   return (
-    <section id="briefings" className="py-32 px-6 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute left-0 bottom-0 w-full h-1/2 bg-gradient-to-t from-neon-blue/5 to-transparent -z-10" />
-      
+    <section id="simulations" className="py-32 px-6 relative overflow-hidden bg-[#0a0a0a]">
       <div className="max-w-6xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -52,61 +43,57 @@ export default function LabReports() {
           className="mb-16"
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-12 bg-neon-blue" />
-            <span className="text-xs font-mono text-neon-blue tracking-widest uppercase">Classified Information</span>
+            <div className="h-px w-12 bg-red-500" />
+            <span className="text-xs font-mono text-red-500 tracking-widest uppercase">Red Team Operations</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Lab <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple">Reports</span> & Briefings</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">Security Research & <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Attack Simulations</span></h2>
           <p className="text-slate-400 text-lg max-w-2xl font-light">
-            Deep dives into hacking methodology, vulnerability research, and system defense strategies.
+            Understanding the adversary to build stronger defenses.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {reports.map((report, index) => {
-            const Icon = report.icon;
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {simulations.map((sim, index) => {
+            const Icon = sim.icon;
             return (
               <motion.div
-                key={report.id}
+                key={sim.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="group relative"
+                className="group relative h-full flex flex-col"
               >
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-neon-blue to-neon-purple opacity-10 group-hover:opacity-30 rounded-2xl blur transition duration-300" />
-                <div className="relative h-full bg-[#0d0d0d] border border-white/5 p-8 rounded-2xl flex flex-col hover:border-white/20 transition-all duration-300">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-red-500/20 to-orange-500/20 opacity-0 group-hover:opacity-100 rounded-xl blur transition duration-300" />
+                <div className="relative h-full bg-cyber-dark border border-white/5 p-6 md:p-8 rounded-xl flex flex-col hover:border-white/20 transition-all duration-300">
                   <div className="flex justify-between items-start mb-6">
-                    <div className={`p-3 rounded-xl bg-white/5 ${report.color} group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`p-3 rounded-lg bg-white/5 ${sim.color}`}>
                       <Icon size={24} />
                     </div>
-                    <span className="text-[10px] font-mono text-slate-500">{report.id}</span>
+                    <span className="text-[10px] font-mono text-slate-500">{sim.id}</span>
                   </div>
                   
-                  <span className="text-xs font-mono text-slate-500 uppercase tracking-wider mb-2">{report.category}</span>
-                  <h3 className="text-xl font-bold mb-4 group-hover:text-white transition-colors">{report.title}</h3>
-                  <p className="text-slate-400 text-sm font-light leading-relaxed mb-6 flex-grow">
-                    {report.description}
-                  </p>
+                  <h3 className="text-xl font-bold mb-6 text-white">{sim.attack}</h3>
+                  
+                  <div className="space-y-6 flex-grow">
+                    <div>
+                      <span className="text-xs font-mono text-red-400 uppercase tracking-widest block mb-1">How it works</span>
+                      <p className="text-slate-300 text-sm leading-relaxed">{sim.howItWorks}</p>
+                    </div>
+                    
+                    <div className="h-px w-full bg-white/5" />
+                    
+                    <div>
+                      <span className="text-xs font-mono text-neon-blue uppercase tracking-widest block mb-1">How to detect</span>
+                      <p className="text-slate-300 text-sm leading-relaxed">{sim.howToDetect}</p>
+                    </div>
 
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {report.tags.map(tag => (
-                      <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded border border-white/5 bg-white/5 text-slate-400 group-hover:text-slate-200">
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex items-center justify-between pt-6 border-t border-white/5 mt-auto">
-                    <span className="text-[10px] font-mono text-slate-600">{report.date}</span>
-                    <a 
-                      href={report.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="flex items-center gap-1 text-xs font-mono text-neon-blue hover:text-white transition-colors group/btn"
-                    >
-                      READ_REPORT
-                      <ChevronRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
-                    </a>
+                    <div className="h-px w-full bg-white/5" />
+                    
+                    <div>
+                      <span className="text-xs font-mono text-neon-green uppercase tracking-widest block mb-1">How to fix</span>
+                      <p className="text-slate-300 text-sm leading-relaxed">{sim.howToFix}</p>
+                    </div>
                   </div>
                 </div>
               </motion.div>

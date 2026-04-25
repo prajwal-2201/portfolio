@@ -1,17 +1,16 @@
 import { useEffect } from 'react';
 import Navbar from './components/Navbar';
-import ParticleBackground from './components/ParticleBackground';
 import QuickActionBar from './components/QuickActionBar';
 import Hero from './sections/Hero';
 import Journey from './sections/Journey';
 import Missions from './sections/Missions';
 import Arsenal from './sections/Arsenal';
-import Travel from './sections/Travel';
 import Certifications from './sections/Certifications';
 import LabReports from './sections/LabReports';
 import Contact from './sections/Contact';
 import TerminalModal from './components/TerminalModal';
-import CursorGlow from './components/CursorGlow';
+import GithubHighlights from './sections/GithubHighlights';
+import LearningNow from './sections/LearningNow';
 
 function App() {
   // Smooth scroll behavior for anchor links
@@ -24,9 +23,7 @@ function App() {
 
   return (
     <div className="relative bg-cyber-dark min-h-screen text-slate-300 font-sans selection:bg-neon-purple/30 selection:text-white overflow-x-hidden">
-      <CursorGlow />
       <TerminalModal />
-      <ParticleBackground />
       <Navbar />
       <QuickActionBar />
       
@@ -36,7 +33,8 @@ function App() {
         <Missions />
         <LabReports />
         <Arsenal />
-        <Travel />
+        <GithubHighlights />
+        <LearningNow />
         <Certifications />
         <Contact />
       </main>
