@@ -9,6 +9,8 @@ import Arsenal from './sections/Arsenal';
 import Travel from './sections/Travel';
 import Certifications from './sections/Certifications';
 import Contact from './sections/Contact';
+import TerminalModal from './components/TerminalModal';
+import CursorGlow from './components/CursorGlow';
 
 function App() {
   // Smooth scroll behavior for anchor links
@@ -21,6 +23,8 @@ function App() {
 
   return (
     <div className="relative bg-cyber-dark min-h-screen text-slate-300 font-sans selection:bg-neon-purple/30 selection:text-white overflow-x-hidden">
+      <CursorGlow />
+      <TerminalModal />
       <ParticleBackground />
       <Navbar />
       <QuickActionBar />

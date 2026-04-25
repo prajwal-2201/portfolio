@@ -15,7 +15,7 @@ const certs = [
     title: "Introduction to Penetration Testing",
     issuer: "Security Blue Team",
     date: "2026",
-    link: "/Introduction to Penetration Testing-course.pdf",
+    link: "/penetration-testing-course.pdf",
     icon: Award
   },
   {
