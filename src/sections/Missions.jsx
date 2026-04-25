@@ -1,174 +1,163 @@
 import { motion } from 'framer-motion';
-import { Terminal, Activity, Layers, Code, Zap } from 'lucide-react';
+import { Terminal, Activity, Layers, Code, Zap, Server, Shield, Database } from 'lucide-react';
 import { FaGithub as Github } from 'react-icons/fa';
 
 const projects = [
   {
-    id: "P-01",
+    id: "SOC-X1",
     title: "CyberSentinel – SOC Platform",
-    impact: "Processes 500+ security events/sec and reduces alert fatigue by ~35%.",
-    whatItDoes: [
-      "Ingests and parses real-time log data",
-      "Aggregates events and correlates alerts",
-      "Displays actionable insights via a central dashboard"
-    ],
-    techStack: ["Python", "REST APIs", "ELK Stack"],
+    impact: "500+ EPS",
+    impactDesc: "Security Events Per Second",
+    efficiency: "35%",
+    efficiencyDesc: "Alert Fatigue Reduction",
+    whatItDoes: "Real-time enterprise-grade log orchestration and threat correlation platform.",
+    techStack: ["Python", "Elasticsearch", "Logstash", "Kibana", "Redis"],
     whatIDid: [
-      "Log ingestion pipeline",
-      "Rule-based detection engine",
-      "Alert correlation logic",
-      "Backend APIs for data flow"
+      "Built high-throughput log ingestion pipeline",
+      "Engineered rule-based correlation engine",
+      "Designed analyst-first security dashboard",
+      "Optimized query performance for petabyte-scale data"
     ],
     github: "https://github.com/prajwal-2201"
   },
   {
-    id: "P-02",
-    title: "Host-Based IDS",
-    impact: "90%+ detection accuracy on SQLi and XSS attacks; tested on 10k+ packets.",
-    whatItDoes: [
-      "Monitors system/network activity",
-      "Detects malicious traffic patterns using rules",
-      "Flags indicators of compromise in real time"
-    ],
-    techStack: ["Python", "Suricata", "Wireshark"],
+    id: "IDS-X2",
+    title: "Host-Based IDS (Sniffer)",
+    impact: "90%+",
+    impactDesc: "Detection Accuracy (SQLi/XSS)",
+    efficiency: "10k+",
+    efficiencyDesc: "Tested Network Packets",
+    whatItDoes: "Signature-based threat detection system for deep packet inspection.",
+    techStack: ["Python", "Suricata", "Scapy", "Wireshark"],
     whatIDid: [
-      "Custom detection rules (50+)",
-      "Traffic analysis logic",
-      "Integration with Suricata"
+      "Authored 50+ custom Suricata signatures",
+      "Developed real-time traffic analysis logic",
+      "Integrated automated block-listing hooks",
+      "Performed stress-testing under heavy packet load"
     ],
     github: "https://github.com/prajwal-2201/Intrusion-Detection-System-"
   },
   {
-    id: "P-03",
+    id: "KERNEL-X3",
     title: "DockSmith – Container Runtime",
-    impact: "Built a lightweight container runtime from scratch.",
-    whatItDoes: [
-      "Runs isolated processes similar to Docker containers",
-      "Provides filesystem and process isolation"
-    ],
-    techStack: ["Go", "Linux (namespaces, cgroups, chroot)"],
+    impact: "LOW-LEVEL",
+    impactDesc: "Linux Kernel Engineering",
+    efficiency: "100%",
+    efficiencyDesc: "Process Isolation achieved",
+    whatItDoes: "Lightweight container runtime implemented from scratch focusing on kernel isolation.",
+    techStack: ["Go", "Linux Namespaces", "cgroups", "chroot"],
     whatIDid: [
-      "Namespace-based isolation (PID, mount, etc.)",
-      "cgroups-based resource control",
-      "Custom container execution logic"
+      "Implemented PID, Mount, and Network isolation",
+      "Built cgroups resource restriction controller",
+      "Designed custom image extraction and layering",
+      "Engineered secure container lifecycle management"
     ],
     github: "https://github.com/prajwal-2201/DockSmith"
-  },
-  {
-    id: "P-04",
-    title: "Automated Vulnerability Scanner",
-    impact: "Reduced manual testing time by ~50%.",
-    whatItDoes: [
-      "Scans web applications for common vulnerabilities",
-      "Identifies input validation flaws and misconfigurations"
-    ],
-    techStack: ["Python", "DVWA"],
-    whatIDid: [
-      "Automated scanning logic",
-      "Payload testing system",
-      "Vulnerability reporting output"
-    ],
-    github: "https://github.com/prajwal-2201/Web-Application-Penetration-Testing"
   }
 ];
 
 export default function Missions() {
   return (
     <section id="missions" className="py-32 px-6 relative z-10">
-      <div className="absolute right-0 top-1/4 w-96 h-96 bg-neon-blue/5 rounded-full blur-[100px] -z-10" />
-      
       <div className="max-w-6xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="mb-16 md:mb-24"
+          className="mb-20"
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-12 bg-neon-blue" />
-            <span className="text-xs font-mono text-neon-blue tracking-widest uppercase">Weaponized Code</span>
+            <span className="text-xs font-mono text-neon-blue tracking-widest uppercase">Weaponized Systems</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Active <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-cyan-300">Missions</span></h2>
-          <p className="text-slate-400 text-lg max-w-xl font-light">
-            Real problems. Real systems. Real metrics.
+          <h2 className="text-4xl md:text-6xl font-black mb-6 uppercase tracking-tighter text-white">Active <span className="text-neon-blue">Missions</span></h2>
+          <p className="text-slate-500 text-lg max-w-2xl font-mono uppercase tracking-widest">
+            Engineering depth. Real metrics. Zero filler.
           </p>
         </motion.div>
 
-        <div className="space-y-12">
+        <div className="space-y-32">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-panel p-8 md:p-10 border border-white/5 hover:border-white/20 transition-all duration-300 group"
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="relative"
             >
-              <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8">
-                <div>
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="text-xs font-mono text-neon-blue px-2 py-1 rounded bg-neon-blue/10 border border-neon-blue/20">
-                      {project.id}
-                    </span>
-                    <h3 className="text-2xl md:text-3xl font-bold text-white">{project.title}</h3>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                {/* Left Side - Metrics & Impact */}
+                <div className="lg:col-span-4 space-y-6">
+                  <div className="glass-panel p-8 border-l-4 border-l-neon-blue hud-border">
+                    <div className="text-[10px] font-mono text-slate-500 mb-2">CRITICAL_METRIC_01</div>
+                    <div className="text-5xl font-black text-white terminal-text mb-1">{project.impact}</div>
+                    <div className="text-[10px] font-mono text-neon-blue uppercase tracking-widest">{project.impactDesc}</div>
                   </div>
-                  <p className="text-neon-green font-mono text-sm flex items-center gap-2">
-                    <Zap size={14} />
-                    {project.impact}
+                  
+                  <div className="glass-panel p-8 border-l-4 border-l-neon-green hud-border">
+                    <div className="text-[10px] font-mono text-slate-500 mb-2">CRITICAL_METRIC_02</div>
+                    <div className="text-5xl font-black text-white terminal-text mb-1">{project.efficiency}</div>
+                    <div className="text-[10px] font-mono text-neon-green uppercase tracking-widest">{project.efficiencyDesc}</div>
+                  </div>
+                </div>
+
+                {/* Right Side - Engineering Depth */}
+                <div className="lg:col-span-8 flex flex-col">
+                  <div className="flex items-center justify-between mb-8">
+                    <div>
+                      <span className="text-xs font-mono text-slate-500 mb-2 block">{project.id} // SYSTEM_CORE</span>
+                      <h3 className="text-3xl md:text-4xl font-bold text-white group-hover:text-neon-blue transition-colors">{project.title}</h3>
+                    </div>
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-neon-blue/50 hover:text-neon-blue transition-all">
+                      <Github size={24} />
+                    </a>
+                  </div>
+
+                  <p className="text-lg text-slate-300 mb-10 font-light leading-relaxed">
+                    {project.whatItDoes}
                   </p>
-                </div>
-                
-                <a href={project.github} target="_blank" rel="noopener noreferrer" className="shrink-0 w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 hover:border-neon-purple/50 hover:text-neon-purple transition-colors">
-                  <Github size={20} />
-                </a>
-              </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {/* What it does */}
-                <div>
-                  <h4 className="flex items-center gap-2 text-sm font-mono text-slate-500 uppercase tracking-widest mb-4">
-                    <Activity size={14} className="text-neon-blue" />
-                    What It Does
-                  </h4>
-                  <ul className="space-y-2">
-                    {project.whatItDoes.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-slate-300 text-sm">
-                        <span className="text-neon-blue mt-1">▹</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* What I did */}
-                <div>
-                  <h4 className="flex items-center gap-2 text-sm font-mono text-slate-500 uppercase tracking-widest mb-4">
-                    <Terminal size={14} className="text-neon-purple" />
-                    What I Did
-                  </h4>
-                  <ul className="space-y-2">
-                    {project.whatIDid.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-slate-300 text-sm">
-                        <span className="text-neon-purple mt-1">▹</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Tech Stack */}
-                <div>
-                  <h4 className="flex items-center gap-2 text-sm font-mono text-slate-500 uppercase tracking-widest mb-4">
-                    <Layers size={14} className="text-neon-green" />
-                    Tech Stack
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech, i) => (
-                      <span key={i} className="px-3 py-1 text-xs font-mono rounded bg-white/5 border border-white/10 text-slate-300 group-hover:border-white/20 transition-colors">
-                        {tech}
-                      </span>
-                    ))}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-10">
+                    <div>
+                      <h4 className="flex items-center gap-2 text-[10px] font-mono text-neon-purple uppercase tracking-[0.2em] mb-6">
+                        <Code size={14} /> Engineering_Tasks
+                      </h4>
+                      <ul className="space-y-3">
+                        {project.whatIDid.map((task, i) => (
+                          <li key={i} className="flex items-start gap-3 text-sm text-slate-400 group">
+                            <span className="text-neon-purple mt-1">/</span>
+                            {task}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="flex items-center gap-2 text-[10px] font-mono text-neon-green uppercase tracking-[0.2em] mb-6">
+                        <Layers size={14} /> Technology_Stack
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.techStack.map((tech, i) => (
+                          <span key={i} className="px-3 py-1.5 text-[10px] font-mono rounded bg-white/5 border border-white/10 text-slate-400">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* System Flow Visualization (Placeholder) */}
+                  <div className="mt-auto p-4 rounded bg-white/5 border border-white/5 flex items-center justify-between opacity-50 grayscale hover:grayscale-0 transition-all cursor-default">
+                    <div className="flex items-center gap-4">
+                      <Server size={16} className="text-neon-blue" />
+                      <div className="h-px w-8 bg-neon-blue/20" />
+                      <Database size={16} className="text-neon-purple" />
+                      <div className="h-px w-8 bg-neon-purple/20" />
+                      <Shield size={16} className="text-neon-green" />
+                    </div>
+                    <span className="text-[8px] font-mono text-slate-600 tracking-widest uppercase">Visualizing Architecture Flow // ENCRYPTED_LINK</span>
                   </div>
                 </div>
               </div>

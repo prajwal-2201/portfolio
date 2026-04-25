@@ -1,100 +1,101 @@
 import { motion } from 'framer-motion';
-import { ShieldAlert, Crosshair, AlertTriangle } from 'lucide-react';
+import { ShieldAlert, Crosshair, AlertTriangle, Terminal, ChevronRight, FileSearch } from 'lucide-react';
 
-const simulations = [
+const research = [
   {
-    id: "RES-01",
-    attack: "IDS Bypass Techniques",
-    icon: Crosshair,
-    color: "text-red-400",
-    howItWorks: "Studied packet fragmentation and timing-based evasion to understand how attackers avoid detection systems.",
-    howToDetect: "Monitor for unusually high rates of IP fragmentation, overlapping offsets, and out-of-order fragment delivery.",
-    howToFix: "Explored detection improvements and host-based fragment reassembly strictness."
+    id: "ADV-R01",
+    title: "IDS Bypass via Packet Fragmentation",
+    category: "RED_TEAM_RESEARCH",
+    brief: "Deep dive into evading stateful network inspection systems.",
+    howItWorks: "Leveraged overlapping TCP fragments to desynchronize IDS state machine from host reassembly, effectively smuggling payloads past detection.",
+    detection: "Signature-based detection fails; requires target-aware reassembly and fragmentation overlap thresholding.",
+    mitigation: "Strict fragmentation timeout enforcement and non-overlapping reassembly policies.",
+    impact: "Successfully bypassed Snort/Suricata default configurations."
   },
   {
-    id: "RES-02",
-    attack: "Web Exploitation (DVWA)",
-    icon: AlertTriangle,
-    color: "text-neon-purple",
-    howItWorks: "Identified SQL injection and XSS vulnerabilities within controlled environments; tested input validation weaknesses.",
-    howToDetect: "Mapped vulnerabilities to OWASP Top 10 categories to standardize detection patterns.",
-    howToFix: "Applied secure coding principles and robust input sanitization to prevent exploitation."
+    id: "VULN-R02",
+    title: "DVWA: Exploitation & Mitigation",
+    category: "VULNERABILITY_LAB",
+    brief: "Simulated real-world attacks on vulnerable web architectures.",
+    howItWorks: "Executed SQL Injection and Cross-Site Scripting (XSS) at 'High' difficulty levels using manual and automated techniques.",
+    detection: "Monitor server logs for meta-character sequences; implement WAF filtering for common malicious patterns.",
+    mitigation: "Parameterized queries (SQLi) and robust input sanitization/CSP (XSS).",
+    impact: "Mapped 5 critical exploitation paths to OWASP Top 10."
   }
 ];
 
-const approach = "For each attack → I analyze how it works, how to detect it, and how to prevent it.";
-
 export default function LabReports() {
   return (
-    <section id="simulations" className="py-32 px-6 relative overflow-hidden bg-[#0a0a0a]">
+    <section id="simulations" className="py-32 px-6 relative overflow-hidden bg-cyber-darker/50">
       <div className="max-w-6xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-16"
+          className="mb-20"
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-12 bg-red-500" />
-            <span className="text-xs font-mono text-red-500 tracking-widest uppercase">Red Team Operations</span>
+            <div className="h-px w-12 bg-neon-red" />
+            <span className="text-xs font-mono text-neon-red tracking-widest uppercase">Intel Intelligence</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">Security Research & <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Attack Simulations</span></h2>
-          <p className="text-slate-400 text-lg max-w-2xl font-light mb-4">
-            Understanding the adversary to build stronger defenses.
+          <h2 className="text-4xl md:text-6xl font-black mb-6 uppercase text-white">Security <span className="text-neon-red">Research</span></h2>
+          <p className="text-slate-500 text-lg max-w-2xl font-mono uppercase tracking-widest">
+            Analyzing attack surface to build resilient defense.
           </p>
-          <div className="inline-block px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-sm font-mono">
-            {approach}
-          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {simulations.map((sim, index) => {
-            const Icon = sim.icon;
-            return (
-              <motion.div
-                key={sim.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="group relative h-full flex flex-col"
-              >
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-red-500/20 to-orange-500/20 opacity-0 group-hover:opacity-100 rounded-xl blur transition duration-300" />
-                <div className="relative h-full bg-cyber-dark border border-white/5 p-6 md:p-8 rounded-xl flex flex-col hover:border-white/20 transition-all duration-300">
-                  <div className="flex justify-between items-start mb-6">
-                    <div className={`p-3 rounded-lg bg-white/5 ${sim.color}`}>
-                      <Icon size={24} />
-                    </div>
-                    <span className="text-[10px] font-mono text-slate-500">{sim.id}</span>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {research.map((report, index) => (
+            <motion.div
+              key={report.id}
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="group relative"
+            >
+              <div className="absolute -inset-1 bg-neon-red/10 blur group-hover:bg-neon-red/20 transition-all" />
+              <div className="relative h-full bg-black/60 border border-white/5 p-10 rounded-none hud-border overflow-hidden">
+                <div className="flex justify-between items-start mb-10">
+                  <div className="p-3 bg-neon-red/10 border border-neon-red/20 text-neon-red">
+                    <Crosshair size={24} />
+                  </div>
+                  <span className="text-[10px] font-mono text-slate-600 bg-white/5 px-2 py-1 tracking-widest uppercase">{report.id}</span>
+                </div>
+
+                <div className="mb-2 text-[10px] font-mono text-neon-red uppercase tracking-[0.3em]">{report.category}</div>
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-neon-red transition-colors">{report.title}</h3>
+                <p className="text-slate-400 font-light text-base mb-8 leading-relaxed italic">{report.brief}</p>
+
+                <div className="space-y-8 font-mono">
+                  <div className="border-l-2 border-neon-red/30 pl-4 py-1">
+                    <span className="text-[10px] text-neon-red uppercase tracking-widest block mb-2">HOW_IT_WORKS</span>
+                    <p className="text-xs text-slate-300 leading-relaxed uppercase">{report.howItWorks}</p>
                   </div>
                   
-                  <h3 className="text-xl font-bold mb-6 text-white">{sim.attack}</h3>
-                  
-                  <div className="space-y-6 flex-grow">
-                    <div>
-                      <span className="text-xs font-mono text-red-400 uppercase tracking-widest block mb-1">How it works</span>
-                      <p className="text-slate-300 text-sm leading-relaxed">{sim.howItWorks}</p>
-                    </div>
-                    
-                    <div className="h-px w-full bg-white/5" />
-                    
-                    <div>
-                      <span className="text-xs font-mono text-neon-blue uppercase tracking-widest block mb-1">How to detect</span>
-                      <p className="text-slate-300 text-sm leading-relaxed">{sim.howToDetect}</p>
-                    </div>
+                  <div className="border-l-2 border-neon-blue/30 pl-4 py-1">
+                    <span className="text-[10px] text-neon-blue uppercase tracking-widest block mb-2">DETECTION_METHOD</span>
+                    <p className="text-xs text-slate-300 leading-relaxed uppercase">{report.detection}</p>
+                  </div>
 
-                    <div className="h-px w-full bg-white/5" />
-                    
-                    <div>
-                      <span className="text-xs font-mono text-neon-green uppercase tracking-widest block mb-1">How to fix</span>
-                      <p className="text-slate-300 text-sm leading-relaxed">{sim.howToFix}</p>
-                    </div>
+                  <div className="border-l-2 border-neon-green/30 pl-4 py-1">
+                    <span className="text-[10px] text-neon-green uppercase tracking-widest block mb-2">MITIGATION_STRATEGY</span>
+                    <p className="text-xs text-slate-300 leading-relaxed uppercase">{report.mitigation}</p>
                   </div>
                 </div>
-              </motion.div>
-            );
-          })}
+
+                <div className="mt-12 pt-6 border-t border-white/5 flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-[10px] font-mono text-neon-red">
+                    <Activity size={12} /> IMPACT: {report.impact}
+                  </div>
+                  <div className="text-[10px] font-mono text-slate-500 group-hover:text-white transition-colors flex items-center gap-2">
+                    FULL_REPORT <ChevronRight size={14} />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

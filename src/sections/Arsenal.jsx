@@ -1,108 +1,97 @@
 import { motion } from 'framer-motion';
-import { Shield, Server, Search, Target } from 'lucide-react';
+import { Shield, Server, Search, Target, Cpu, HardDrive, Network, Lock } from 'lucide-react';
 
-const categories = [
+const coreCompetencies = [
   {
-    title: "Systems & Internals",
-    icon: Server,
+    title: "Linux Internals",
+    icon: Cpu,
     color: "text-red-400",
-    glow: "group-hover:shadow-[0_0_30px_rgba(248,113,113,0.15)] group-hover:border-red-400/50",
-    skills: ["Linux Namespaces", "cgroups", "Process Isolation", "Kernel Structures"]
+    skills: ["Namespaces (PID, Mount, Net)", "cgroups (Resource Control)", "Seccomp/AppArmor", "Process Isolation"]
   },
   {
     title: "Detection Engineering",
     icon: Shield,
-    color: "text-neon-purple",
-    glow: "group-hover:shadow-[0_0_30_rgba(176,38,255,0.15)] group-hover:border-neon-purple/50",
-    skills: ["Rule-based Detection", "IOC Analysis", "YARA Signatures", "SIEM (ELK, Splunk)"]
+    color: "text-neon-blue",
+    skills: ["Rule-based Detection", "IOC Analysis", "Suricata/Snort Rules", "Sigma Signatures"]
   },
   {
-    title: "Network & Traffic",
-    icon: Search,
-    color: "text-neon-green",
-    glow: "group-hover:shadow-[0_0_30px_rgba(0,255,102,0.15)] group-hover:border-neon-green/50",
-    skills: ["Traffic Inspection", "Packet Analysis", "Wireshark", "Suricata Rules"]
+    title: "Infrastructure Security",
+    icon: Server,
+    color: "text-neon-purple",
+    skills: ["Container Security", "Hardening (CI/CD)", "Log Ingestion (ELK)", "VPC Topologies"]
   },
   {
     title: "Threat Analysis",
-    icon: Target,
-    color: "text-neon-blue",
-    glow: "group-hover:shadow-[0_0_30px_rgba(0,240,255,0.15)] group-hover:border-neon-blue/50",
-    skills: ["Log Parsing", "Alert Correlation", "Burp Suite", "Nmap Scans"]
+    icon: Search,
+    color: "text-neon-green",
+    skills: ["Packet Analysis (Wireshark)", "Log Correlation", "Forensic Artifacts", "Malware Sandbox"]
   }
 ];
 
 export default function Arsenal() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.4 } }
-  };
-
   return (
-    <section id="arsenal" className="py-32 px-6 relative z-10">
+    <section id="arsenal" className="py-32 px-6 relative z-10 bg-cyber-black">
       <div className="max-w-6xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="h-px w-12 bg-neon-purple" />
-            <span className="text-xs font-mono text-neon-purple tracking-widest uppercase">Competencies</span>
+            <span className="text-xs font-mono text-neon-purple tracking-widest uppercase">System Capabilities</span>
             <div className="h-px w-12 bg-neon-purple" />
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-purple to-pink-500">Depth</span></h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto font-light">
-            Core capabilities spanning systems, defense, and detection.
+          <h2 className="text-4xl md:text-7xl font-black mb-6 uppercase tracking-tighter text-white">Technical <span className="text-neon-purple">Depth</span></h2>
+          <p className="text-slate-500 text-lg max-w-2xl mx-auto font-mono uppercase tracking-[0.2em]">
+            Deep-stack engineering from kernel to cloud.
           </p>
         </motion.div>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {categories.map((category) => {
-            const Icon = category.icon;
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {coreCompetencies.map((comp, index) => {
+            const Icon = comp.icon;
             return (
               <motion.div
-                key={category.title}
-                variants={itemVariants}
-                className={`glass-panel p-6 group border border-white/5 transition-all duration-300 ${category.glow} flex flex-col hover:-translate-y-2`}
+                key={comp.title}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="glass-panel p-10 border border-white/5 relative overflow-hidden group hover:border-neon-purple/30 transition-all"
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className={`w-12 h-12 rounded-xl bg-cyber-darker flex items-center justify-center border border-white/10 group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon size={22} className={`text-slate-400 transition-colors duration-300 group-hover:${category.color}`} />
+                <div className="flex items-center gap-6 mb-10">
+                  <div className={`w-16 h-16 rounded bg-black flex items-center justify-center border border-white/10 group-hover:border-neon-purple/50 transition-colors shadow-[inset_0_0_20px_rgba(176,38,255,0.05)]`}>
+                    <Icon size={32} className={`${comp.color} transition-transform group-hover:scale-110`} />
                   </div>
-                  <h3 className="text-lg font-bold group-hover:text-white transition-colors">{category.title}</h3>
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-1 uppercase tracking-tight">{comp.title}</h3>
+                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Comp_Level: ADVANCED</span>
+                  </div>
                 </div>
-                
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  {category.skills.map((skill) => (
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {comp.skills.map((skill) => (
                     <div 
                       key={skill} 
-                      className="relative px-3 py-1.5 bg-cyber-darker/80 rounded border border-white/5 hover:border-white/20 transition-all cursor-default group/skill"
+                      className="flex items-center gap-3 p-3 bg-white/5 border border-white/5 rounded text-sm text-slate-400 font-mono hover:text-white hover:bg-white/10 transition-all cursor-default"
                     >
-                      <span className="text-xs font-medium text-slate-400 group-hover/skill:text-white transition-colors">{skill}</span>
+                      <div className="w-1.5 h-1.5 rounded-full bg-neon-purple/50 group-hover:bg-neon-purple shadow-[0_0_5px_rgba(176,38,255,0.5)]" />
+                      {skill}
                     </div>
                   ))}
+                </div>
+                
+                {/* HUD Decoration */}
+                <div className="absolute top-2 right-2 text-[8px] font-mono text-white/5 uppercase select-none">
+                  Core_Capability_Matix // {comp.title.replace(' ', '_')}
                 </div>
               </motion.div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

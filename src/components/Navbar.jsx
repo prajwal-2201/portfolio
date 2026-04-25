@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Shield, Menu, X } from 'lucide-react';
 
 const navItems = [
   { name: 'Home', href: '#hero' },
@@ -7,9 +8,8 @@ const navItems = [
   { name: 'Missions', href: '#missions' },
   { name: 'Simulations', href: '#simulations' },
   { name: 'Arsenal', href: '#arsenal' },
-  { name: 'GitHub', href: '#github' },
+  { name: 'Source', href: '#github' },
   { name: 'Learning', href: '#learning' },
-  { name: 'Certifications', href: '#certifications' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -21,7 +21,6 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
       
-      // Simple scroll spy logic
       const sections = navItems.map(item => document.querySelector(item.href));
       const scrollPosition = window.scrollY + 100;
 
@@ -43,43 +42,50 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'py-4 glass-panel bg-cyber-dark/80 border-b border-white/10' : 'py-6 bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+        scrolled ? 'py-4 glass-panel border-b border-white/5' : 'py-8 bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-        <div className="text-xl font-bold font-mono tracking-tighter">
-          <span className="text-white">SYS</span>
-          <span className="text-neon-blue">_DEV</span>
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-between items-center">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 bg-neon-blue/10 border border-neon-blue/30 flex items-center justify-center rounded">
+            <Shield size={20} className="text-neon-blue" />
+          </div>
+          <div className="font-mono leading-none">
+            <div className="text-lg font-black text-white tracking-tighter">PRAJWAL_V</div>
+            <div className="text-[8px] text-neon-blue tracking-[0.4em] uppercase">Security_Operations</div>
+          </div>
         </div>
         
-        <div className="hidden md:flex space-x-1 border border-white/10 rounded-full px-2 py-1 bg-white/5 backdrop-blur-md">
+        <div className="hidden lg:flex items-center gap-1">
           {navItems.map((item) => (
             <a
               key={item.name}
               href={item.href}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors relative ${
-                activeItem === item.name ? 'text-cyber-dark' : 'text-slate-300 hover:text-white'
+              className={`px-4 py-2 font-mono text-[10px] uppercase tracking-widest transition-all relative ${
+                activeItem === item.name ? 'text-neon-blue' : 'text-slate-500 hover:text-white'
               }`}
             >
               {activeItem === item.name && (
                 <motion.div
-                  layoutId="navbar-indicator"
-                  className="absolute inset-0 bg-neon-blue rounded-full -z-10"
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                  layoutId="nav-indicator"
+                  className="absolute bottom-0 left-4 right-4 h-px bg-neon-blue shadow-[0_0_10px_#00f0ff]"
                 />
               )}
               {item.name}
             </a>
           ))}
+          
+          <div className="ml-6 pl-6 border-l border-white/10">
+            <div className="flex items-center gap-2 px-3 py-1 bg-neon-green/10 border border-neon-green/20 rounded-full">
+              <div className="w-1.5 h-1.5 rounded-full bg-neon-green animate-pulse" />
+              <span className="text-[8px] font-mono text-neon-green uppercase tracking-widest">System_Live</span>
+            </div>
+          </div>
         </div>
         
-        <div className="md:hidden">
-          {/* Mobile menu toggle button could go here */}
-          <div className="w-8 h-8 flex flex-col justify-center gap-1.5 cursor-pointer">
-            <span className="w-full h-0.5 bg-white block"></span>
-            <span className="w-2/3 h-0.5 bg-white block ml-auto"></span>
-          </div>
+        <div className="lg:hidden">
+          <Menu size={24} className="text-white" />
         </div>
       </div>
     </motion.nav>

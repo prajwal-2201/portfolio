@@ -1,79 +1,117 @@
 import { motion } from 'framer-motion';
-import { Download } from 'lucide-react';
-import { FaGithub } from 'react-icons/fa';
+import { Terminal, Shield, Lock, Activity, ChevronRight, Zap } from 'lucide-react';
 
 export default function Hero() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.1 }
-    }
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: 'easeOut' },
+    },
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative pt-20 px-6 overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neon-blue/5 rounded-full blur-[100px] -z-10" />
+    <section id="hero" className="min-h-screen pt-32 pb-20 px-6 flex flex-col items-center justify-center relative overflow-hidden">
+      {/* HUD Elements */}
+      <div className="absolute top-10 left-10 hidden xl:block">
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2 text-[10px] font-mono text-neon-blue/40">
+            <Activity size={12} /> SYSTEM_STATUS: OPERATIONAL
+          </div>
+          <div className="flex items-center gap-2 text-[10px] font-mono text-neon-green/40">
+            <Lock size={12} /> SEC_CLEARANCE: LEVEL_4
+          </div>
+        </div>
+      </div>
 
-      <motion.div 
-        className="max-w-5xl mx-auto z-10 w-full text-center"
+      <div className="absolute top-10 right-10 hidden xl:block">
+        <div className="text-right">
+          <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-1">Deployment Phase</div>
+          <div className="text-lg font-bold text-white font-mono tracking-tighter">PHASE_04_STABLE</div>
+        </div>
+      </div>
+
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
+        className="relative z-10 text-center"
       >
-        <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neon-green/30 bg-neon-green/10 backdrop-blur-sm mb-6 shadow-[0_0_15px_rgba(0,255,102,0.1)]">
-          <span className="w-2 h-2 rounded-full bg-neon-green animate-pulse" />
-          <span className="text-xs font-mono text-neon-green tracking-wider uppercase font-semibold">Open to Opportunities</span>
+        <motion.div 
+          variants={itemVariants}
+          className="inline-flex items-center gap-2 px-3 py-1 rounded border border-neon-blue/20 bg-neon-blue/5 text-neon-blue text-[10px] font-mono mb-8 uppercase tracking-widest glow-text-blue"
+        >
+          <Terminal size={12} /> Identity_Verified // SOC_ENGINEER
         </motion.div>
 
-        <motion.div variants={itemVariants} className="mb-4">
-          <p className="text-sm md:text-base font-mono text-slate-400 uppercase tracking-[0.3em]">Prajwal V</p>
-        </motion.div>
-
-        <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.2] tracking-tight">
-          Cybersecurity Engineer<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple">| SOC & Detection Systems</span>
+        <motion.h1 
+          variants={itemVariants} 
+          className="text-5xl md:text-8xl font-black mb-6 leading-tight tracking-tighter text-white uppercase terminal-text"
+        >
+          Cybersecurity<br />
+          <span className="text-neon-blue">Engineer</span>
         </motion.h1>
 
-        <motion.p variants={itemVariants} className="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto mb-4 font-medium">
-          I design and build systems that detect, analyze, and respond to real-world cyber threats.
+        <motion.div variants={itemVariants} className="mb-12 relative inline-block">
+          <div className="absolute -inset-1 bg-neon-blue/20 blur-xl rounded-full" />
+          <div className="relative glass-panel px-6 py-4 border-l-4 border-l-neon-blue rounded-none hud-border">
+            <p className="text-xl md:text-2xl text-slate-100 font-mono tracking-tight leading-relaxed">
+              I build systems that <span className="text-neon-blue font-bold italic underline decoration-neon-blue/30 underline-offset-4">detect</span> and <span className="text-neon-red font-bold italic underline decoration-neon-red/30 underline-offset-4">respond</span> to<br className="hidden md:block" /> real-world cyber threats.
+            </p>
+          </div>
+        </motion.div>
+
+        <motion.p 
+          variants={itemVariants} 
+          className="text-sm md:text-lg text-slate-500 max-w-2xl mx-auto mb-12 font-mono uppercase tracking-[0.2em]"
+        >
+          Focused on threat detection, incident response, and defensive engineering.
         </motion.p>
 
-        <motion.p variants={itemVariants} className="text-base md:text-lg text-slate-400 max-w-2xl mx-auto mb-12 font-light">
-          Focused on threat detection, incident response, and defensive engineering using Python, Linux, and modern security tooling.
-        </motion.p>
-
-        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row justify-center items-center gap-4">
-          <a href="#missions" className="w-full sm:w-auto px-8 py-4 bg-white text-cyber-dark font-bold rounded-lg hover:bg-slate-200 transition-all flex items-center justify-center gap-2 group hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]">
-            View Projects
+        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row justify-center items-center gap-6">
+          <a
+            href="#missions"
+            className="group relative px-10 py-5 bg-white text-black font-bold uppercase tracking-widest text-[10px] flex items-center gap-2 hover:bg-neon-blue transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_#00f0ff]"
+          >
+            Access_Missions
+            <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </a>
-          
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 glass-panel hover:bg-white/10 hover:border-neon-blue/50 transition-all flex items-center justify-center gap-2 group hover:shadow-[0_0_20px_rgba(0,240,255,0.2)]">
-            <Download size={18} className="text-neon-blue group-hover:-translate-y-1 transition-transform" />
-            Resume
-          </a>
-
-          <a href="https://github.com/prajwal-2201" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 glass-panel hover:bg-white/10 hover:border-neon-purple/50 transition-all flex items-center justify-center gap-2 group hover:shadow-[0_0_20px_rgba(176,38,255,0.2)]">
-            <FaGithub size={18} className="text-neon-purple group-hover:scale-110 transition-transform" />
-            GitHub
+          <a
+            href="#contact"
+            className="px-10 py-5 bg-transparent border border-white/10 text-white font-bold uppercase tracking-widest text-[10px] flex items-center gap-2 hover:bg-white/5 transition-all duration-300"
+          >
+            Establish_Contact
           </a>
         </motion.div>
       </motion.div>
+
+      {/* Background visual - Large subtle text */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none select-none opacity-[0.03]">
+        <div className="text-[20vw] font-black font-mono leading-none whitespace-nowrap -mb-10">
+          DEFENSE // DETECTION // RESPONSE
+        </div>
+      </div>
       
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-[10px] font-mono text-slate-500 tracking-[0.2em] uppercase">Scroll</span>
-        <div className="w-px h-12 bg-gradient-to-b from-neon-blue/30 to-transparent" />
+        <span className="text-[8px] font-mono text-slate-600 tracking-[0.3em] uppercase">Scroll_To_Observe</span>
+        <div className="w-px h-12 bg-gradient-to-b from-neon-blue/20 to-transparent" />
       </motion.div>
     </section>
   );

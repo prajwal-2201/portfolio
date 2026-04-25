@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { BookOpen, Target, Cloud, ShieldCheck } from 'lucide-react';
+import { BookOpen, Target, Cloud, ShieldCheck, Terminal, ChevronRight, Activity } from 'lucide-react';
 
 const learningGoals = [
   {
@@ -26,7 +26,7 @@ const learningGoals = [
   {
     title: "Incident Response",
     status: "Improving workflows for forensic analysis",
-    icon: BookOpen,
+    icon: Terminal,
     color: "text-neon-green",
     progress: 55
   }
@@ -34,25 +34,26 @@ const learningGoals = [
 
 export default function LearningNow() {
   return (
-    <section id="learning" className="py-20 px-6 relative z-10">
+    <section id="learning" className="py-32 px-6 relative z-10 bg-cyber-black">
       <div className="max-w-4xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="mb-12 flex items-center gap-4"
+          className="mb-16"
         >
-          <div className="p-3 bg-white/5 rounded-xl border border-white/10">
-            <BookOpen size={24} className="text-neon-green" />
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-px w-12 bg-neon-green" />
+            <span className="text-xs font-mono text-neon-green tracking-widest uppercase">Growth Vector</span>
           </div>
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold">What I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-green to-cyan-300">Learning Now</span></h2>
-            <p className="text-slate-400 font-light text-sm">Continuous growth in the evolving threat landscape.</p>
-          </div>
+          <h2 className="text-3xl md:text-5xl font-black mb-6 uppercase tracking-tighter text-white">Currently <span className="text-neon-green">Upgrading</span></h2>
+          <p className="text-slate-500 text-lg max-w-2xl font-mono uppercase tracking-widest">
+            Continuous system updates in the evolving threat landscape.
+          </p>
         </motion.div>
 
-        <div className="space-y-4">
+        <div className="space-y-6">
           {learningGoals.map((goal, index) => {
             const Icon = goal.icon;
             return (
@@ -62,31 +63,42 @@ export default function LearningNow() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="glass-panel p-6 flex flex-col md:flex-row md:items-center gap-6 border-l-2 border-l-transparent hover:border-l-neon-green transition-all"
+                className="glass-panel p-8 border border-white/5 relative group overflow-hidden"
               >
-                <div className={`p-3 rounded-lg bg-white/5 ${goal.color}`}>
-                  <Icon size={20} />
+                <div className="absolute top-0 left-0 w-1 h-full bg-neon-green/20 group-hover:bg-neon-green transition-all" />
+                
+                <div className="flex flex-col md:flex-row md:items-center gap-8">
+                  <div className={`p-4 rounded bg-black border border-white/10 ${goal.color}`}>
+                    <Icon size={24} />
+                  </div>
+                  
+                  <div className="flex-grow">
+                    <h3 className="text-xl font-bold text-white mb-1 uppercase tracking-tight">{goal.title}</h3>
+                    <p className="text-xs font-mono text-slate-500 uppercase tracking-widest">{goal.status}</p>
+                  </div>
+                  
+                  <div className="w-full md:w-64">
+                    <div className="flex justify-between text-[10px] font-mono mb-2 text-slate-600">
+                      <span>SYNC_PROGRESS</span>
+                      <span className="text-neon-green">{goal.progress}%</span>
+                    </div>
+                    <div className="h-1 bg-white/5 rounded-full overflow-hidden border border-white/5">
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${goal.progress}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay: 0.2 }}
+                        className="h-full bg-neon-green shadow-[0_0_10px_#00ff66]"
+                      />
+                    </div>
+                  </div>
                 </div>
                 
-                <div className="flex-grow">
-                  <h3 className="text-lg font-bold text-slate-200">{goal.title}</h3>
-                  <p className="text-slate-400 text-sm">{goal.status}</p>
-                </div>
-                
-                <div className="w-full md:w-48">
-                  <div className="flex justify-between text-xs font-mono mb-2 text-slate-500">
-                    <span>Progress</span>
-                    <span>{goal.progress}%</span>
-                  </div>
-                  <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                    <motion.div 
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${goal.progress}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: 0.2 }}
-                      className={`h-full bg-gradient-to-r from-white/20 to-${goal.color.split('-')[1]}-${goal.color.split('-')[2] || '500'} rounded-full`}
-                    />
-                  </div>
+                {/* HUD Bit */}
+                <div className="absolute top-2 right-2 flex gap-1 opacity-20">
+                  <div className="w-1 h-1 bg-white" />
+                  <div className="w-1 h-1 bg-white" />
+                  <div className="w-1 h-1 bg-white" />
                 </div>
               </motion.div>
             );
