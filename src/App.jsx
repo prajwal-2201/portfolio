@@ -8,6 +8,7 @@ import Missions from './sections/Missions';
 import Arsenal from './sections/Arsenal';
 import Travel from './sections/Travel';
 import Certifications from './sections/Certifications';
+import LabReports from './sections/LabReports';
 import Contact from './sections/Contact';
 import TerminalModal from './components/TerminalModal';
 import CursorGlow from './components/CursorGlow';
@@ -33,6 +34,7 @@ function App() {
         <Hero />
         <Journey />
         <Missions />
+        <LabReports />
         <Arsenal />
         <Travel />
         <Certifications />
