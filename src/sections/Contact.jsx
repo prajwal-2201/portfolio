@@ -29,7 +29,7 @@ export default function Contact() {
                   Send_Transmission
                 </a>
                 <a 
-                  href="/resume.pdf"
+                  href="/Prajwal_resume.pdf"
                   target="_blank"
                   className="px-8 py-5 bg-transparent border border-white/10 text-white font-bold uppercase tracking-widest text-[10px] flex items-center justify-center gap-3 hover:bg-white/5 transition-all"
                 >

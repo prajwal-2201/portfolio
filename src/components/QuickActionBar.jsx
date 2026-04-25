@@ -23,7 +23,7 @@ export default function QuickActionBar() {
       </a>
       
       <a 
-        href="/resume.pdf" 
+        href="/Prajwal_resume.pdf" 
         target="_blank" 
         rel="noopener noreferrer"
         className="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-slate-400 hover:text-neon-green hover:border-neon-green/50 transition-all group"
