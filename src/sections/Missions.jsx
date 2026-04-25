@@ -1,4 +1,4 @@
-import { Terminal, Activity, Layers, Code, Zap, Server, Shield, Database, ExternalLink, AlertCircle, Settings, BarChart3 } from 'lucide-react';
+import { Terminal, Activity, Layers, Code, Zap, Server, Shield, Database, ExternalLink, AlertCircle, Settings, BarChart3, PlayCircle } from 'lucide-react';
 import { FaGithub as Github } from 'react-icons/fa';
 
 const projects = [
@@ -10,7 +10,7 @@ const projects = [
     impact: "Reduces alert fatigue by 35% through automated deduplication; Handles 500+ security events/sec.",
     techStack: ["Python", "ELK Stack", "Redis", "Docker"],
     github: "https://github.com/prajwal-2201",
-    demo: "#",
+    demo: "https://github.com/prajwal-2201", // Link to repo as briefing
     metrics: [
       { label: "Throughput", value: "500+ EPS" },
       { label: "Reduction", value: "35%" }
@@ -24,7 +24,7 @@ const projects = [
     impact: "Achieved 90%+ detection accuracy against OWASP Top 10 payloads; Analyzed 10k+ malicious packets.",
     techStack: ["Python", "Scapy", "Suricata", "Wireshark"],
     github: "https://github.com/prajwal-2201/Intrusion-Detection-System-",
-    demo: "#",
+    demo: "https://github.com/prajwal-2201/Intrusion-Detection-System-",
     metrics: [
       { label: "Accuracy", value: "92%" },
       { label: "Packets", value: "10k+" }
@@ -38,7 +38,7 @@ const projects = [
     impact: "100% Process isolation achieved via PID/Mount namespaces; zero-dependency runtime architecture.",
     techStack: ["Go", "Linux Namespaces", "cgroups", "chroot"],
     github: "https://github.com/prajwal-2201/DockSmith",
-    demo: "#",
+    demo: "https://github.com/prajwal-2201/DockSmith",
     metrics: [
       { label: "Isolation", value: "Kernel-Level" },
       { label: "Overhead", value: "<1%" }
@@ -148,10 +148,12 @@ export default function Missions() {
                     </a>
                     <a 
                       href={project.demo} 
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center gap-3 px-8 py-4 border border-white/10 text-white font-bold uppercase tracking-widest text-[10px] hover:bg-white/5 transition-all"
                     >
-                      <ExternalLink size={16} />
-                      Live_Demo
+                      <PlayCircle size={16} />
+                      Technical_Brief
                     </a>
                   </div>
                 </div>
