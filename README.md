@@ -1,84 +1,131 @@
-<div align="center">
-  <img src="https://img.shields.io/badge/STATUS-READY_FOR_DEPLOYMENT-00FF66?style=for-the-badge&logo=codeforces&logoColor=white" alt="Status Badge"/>
-  
-  <br />
-  <br />
+# Prajwal V. — Security Architect Portfolio
 
-  <h1>🛡️ Prajwal V | Interactive Portfolio</h1>
-  <p>
-    <b>I build systems. I break them. I make them stronger.</b>
-  </p>
-  
-  <p>
-    A high-performance, fully interactive personal portfolio engineered to showcase my skills in <b>Cybersecurity</b> and <b>Full-Stack Development</b>. Designed with a hacker aesthetic, seamless Framer Motion animations, and live GitHub integration.
-  </p>
+> **Live at:** [prajwal-2201.github.io/portfolio](https://prajwal-2201.github.io/portfolio) *(or your deployed URL)*
 
-  <br />
-
-  [![Live Demo](https://img.shields.io/badge/View_Live_Site-00F0FF?style=for-the-badge&logo=vercel&logoColor=black)](https://portfolio-sepia-two-47.vercel.app/)
-  
-  <br />
-</div>
+A high-end, cinematic portfolio engineered for **SOC Engineers**, **Detection Architects**, and **Digital Forensics** roles. Built to stand out — not just look good.
 
 ---
 
-## ⚡ Key Features
+## ✦ Design Philosophy
 
-- **Live GitHub Integration**: Dynamically fetches, filters, and sorts my top repositories using the GitHub REST API.
-- **Problem / Solution / Impact Architecture**: Hovering over project cards reveals a structured, recruiter-optimized breakdown of what I built and why it matters.
-- **Terminal Easter Egg**: Press the **`H`** key or type **`hack`** anywhere on the site to trigger a hidden interactive hacker terminal.
-- **Global Cursor Glow**: A custom, physics-based neon cursor that tracks movement and reacts to interactive elements.
-- **Responsive & Performant**: Built strictly with Vite, React, and Tailwind CSS. All animations are heavily optimized for 60fps scrolling on both desktop and mobile.
+> *"Less decoration. More authority."*
+
+Every scroll interaction, layout decision, and word is optimized for one goal: convince a senior security recruiter in **6 seconds** that this candidate belongs in the top 5%.
 
 ---
 
-## 🛠️ Tech Stack
+## ✦ Tech Stack
 
-<div align="center">
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
-  <img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E" />
-  <img src="https://img.shields.io/badge/Tailwind_v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
-  <img src="https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" />
-</div>
-
----
-
-## 🚀 Running Locally
-
-Want to inspect the code or run the portfolio on your local machine? 
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/prajwal-2201/portfolio.git
-   cd portfolio
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-
-4. **Build for production:**
-   ```bash
-   npm run build
-   ```
+| Layer | Technology |
+|---|---|
+| Framework | React 18 + Vite |
+| Styling | Tailwind CSS |
+| Animation | GSAP + ScrollTrigger |
+| Data | GitHub REST API v3 (live feed) |
+| Icons | Lucide React + React Icons |
 
 ---
 
-## 👤 About Me
+## ✦ Sections
 
-I am a final-year engineering student actively seeking a **Cybersecurity or Cloud Security Internship**. I bridge the gap between software development and proactive defense, understanding how systems are built so I know exactly how to secure them.
+| # | Section | Description |
+|---|---|---|
+| 1 | **Hero** | Cinematic entrance with GSAP stagger — massive bold identity reveal |
+| 2 | **About** | Scroll-scrubbed manifesto statement |
+| 3 | **Experience** | Quantified operational timeline with metric tags |
+| 4 | **Capabilities** | Core security competencies + verified credentials |
+| 5 | **Featured Architectures** | Horizontal-scroll showcase (Nexus + CyberSentinel) with business impact callouts |
+| 6 | **Research** | Threat hunting deep dive with a live YARA rule snippet |
+| 7 | **Security Repositories** | Auto-classified GitHub live feed — new security repos appear automatically |
+| 8 | **Contact** | Closing CTA with timezone, availability, and resume link |
 
-- **Email**: [vprajwal2204@gmail.com](mailto:vprajwal2204@gmail.com)
-- **LinkedIn**: [Prajwal V](https://www.linkedin.com/in/prajwal-v-b975952a0/)
-- **GitHub**: [prajwal-2201](https://github.com/prajwal-2201)
+---
 
-<div align="center">
-  <br />
-  <p><i>"Systems are meant to be understood. And tested."</i></p>
-</div>
+## ✦ Live GitHub Feed — How It Works
+
+The **Security Repositories** section is fully autonomous:
+
+- Fetches up to 50 repos from the GitHub API on load
+- Auto-classifies repos using a **30+ keyword engine** (`yara`, `soc`, `dfir`, `pentest`, `threat`, `malware`, etc.)
+- Polls every **5 minutes** — push a new security project and it appears automatically
+- Hard-blocks non-security repos (`wanderluxe`, `portfolio`, `syncflow`, etc.) by name
+
+> **Zero manual updates needed.** Push a new security repo → it's live on the portfolio within minutes.
+
+---
+
+## ✦ Featured Projects
+
+### Nexus Threat Platform `Infrastructure & Orchestration`
+- **15,000+ EPS** processing via FastAPI / WebSocket pipeline
+- **45% reduction** in false positive alerts through custom correlation rules
+- Reduced P1 analyst response time by eliminating low-fidelity noise at ingestion
+
+### CyberSentinel DFIR `Detection Engineering & Logic`
+- Raw NTFS/FAT sector-level parsing to defeat anti-forensic evasion
+- **98% artifact recovery rate** on heavily fragmented drives
+- Enables attacker attribution by recovering wiped execution artefacts
+
+---
+
+## ✦ Research
+
+The **Threat Hunting & Research** section features a custom YARA rule authored during a live forensic investigation — detecting APT29 (Cozy Bear) fileless memory droppers **before execution touches disk**.
+
+```yara
+rule APT29_CozyBear_Memory_Dropper {
+    meta:
+        author    = "Prajwal V"
+        severity  = "CRITICAL"
+    condition:
+        $magic at 0 and $decryption_routine and 1 of ($obfuscated*)
+}
+```
+
+---
+
+## ✦ Running Locally
+
+```bash
+git clone https://github.com/prajwal-2201/portfolio
+cd portfolio
+npm install
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173)
+
+---
+
+## ✦ Building for Production
+
+```bash
+npm run build
+```
+
+Output goes to `dist/` — deploy to Vercel, Netlify, or GitHub Pages.
+
+---
+
+## ✦ Certifications
+
+- Ethical Hacker Certification
+- Penetration Testing Course
+- Information Security Certification
+
+---
+
+## ✦ Contact
+
+| | |
+|---|---|
+| **Email** | vprajwal2204@gmail.com |
+| **LinkedIn** | [prajwal-v-b975952a0](https://www.linkedin.com/in/prajwal-v-b975952a0/) |
+| **GitHub** | [@prajwal-2201](https://github.com/prajwal-2201) |
+| **Availability** | Remote / Hybrid · IST (UTC +5:30) |
+
+---
+
+<p align="center">
+  <sub>Built with intent. Deployed with precision. © Prajwal V. 2025</sub>
+</p>

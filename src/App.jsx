@@ -1,42 +1,32 @@
 import Navbar from './components/Navbar';
 import Hero from './sections/Hero';
-import Journey from './sections/Journey';
-import Missions from './sections/Missions';
-import LabReports from './sections/LabReports';
+import About from './sections/About';
+import Experience from './sections/Experience';
 import Arsenal from './sections/Arsenal';
-import GithubHighlights from './sections/GithubHighlights';
-import LearningNow from './sections/LearningNow';
-import Certifications from './sections/Certifications';
+import Featured from './sections/Featured';
+import Research from './sections/Research';
+import GithubFeed from './sections/GithubFeed';
 import Contact from './sections/Contact';
-import TerminalModal from './components/TerminalModal';
-import QuickActionBar from './components/QuickActionBar';
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-[#050505] text-slate-300 bg-grid">
-      <TerminalModal />
-      <QuickActionBar />
-      <div className="scanline" />
-      
-      {/* Decorative Overlay - Lowered Z-Index */}
-      <div className="fixed inset-0 pointer-events-none z-0 border-[10px] border-white/[0.02]" />
-      
+    <div className="relative min-h-screen bg-[#050505] text-slate-300 overflow-hidden font-sans selection:bg-white selection:text-black">
       <Navbar />
-      <Hero />
       
       <main className="relative z-10">
-        <Journey />
-        <Missions />
-        <LabReports />
+        <Hero />
+        <About />
+        <Experience />
         <Arsenal />
-        <GithubHighlights />
-        <LearningNow />
-        <Certifications />
+        <Featured />
+        <Research />
+        <GithubFeed />
         <Contact />
       </main>
       
-      <footer className="py-12 border-t border-white/5 bg-[#020202] text-center text-slate-500 font-mono text-[10px] uppercase tracking-widest relative z-10">
-        <p>© 2025 SECURITY_OPERATIONS_CENTER // PRAJWAL_V</p>
+      <footer className="py-8 border-t border-white/10 bg-[#020202] text-center text-slate-500 text-[10px] uppercase tracking-[0.3em] relative z-10 flex flex-col items-center justify-center gap-2">
+        <p>PRAJWAL V. © {new Date().getFullYear()}</p>
+        <p className="text-white/20">SECURITY ARCHITECT · DETECTION ENGINEER</p>
       </footer>
     </div>
   );
