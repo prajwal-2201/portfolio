@@ -1,131 +1,82 @@
 # Prajwal V. — Security Architect Portfolio
 
+> **Status:** `OPERATIONAL` · **Experience Level:** `CINEMATIC`
 > **Live at:** [portfolio-sepia-two-47.vercel.app/](https://portfolio-sepia-two-47.vercel.app/) 
 
-A high-end, cinematic portfolio engineered for **SOC Engineers**, **Detection Architects**, and **Digital Forensics** roles. Built to stand out — not just look good.
+A high-performance, immersive digital experience engineered for **Security Architects**, **SOC Engineers**, and **Detection Architects**. This isn't just a portfolio — it's an operational narrative built to survive the 6-second recruiter skim by forcing immersion.
 
 ---
 
-## ✦ Design Philosophy
+## ✦ The "Experience Factor" (v2.0 Overhaul)
 
-> *"Less decoration. More authority."*
+This portfolio uses advanced **GSAP ScrollTrigger** mechanics to transform a static page into a cinematic journey.
 
-Every scroll interaction, layout decision, and word is optimized for one goal: convince a senior security recruiter in **6 seconds** that this candidate belongs in the top 5%.
+### 🎮 Immersive Features
+- **Pinned Scene Transitions**: Major sections pin to the screen, allowing the user to "scrub" through animations like a video.
+- **The Signature WOW Moment**: A dedicated "Threat Detection" sequence where the system simulates a memory corruption analysis (IR-2025-04) before revealing the Nexus Alpha architecture.
+- **Layered Parallax Depth**: Background ambient blurs move slow while foreground monospaced telemetry (0x847, IR-04) moves fast, creating 3D spatial immersion.
+- **HUD Identity**: A minimal, high-utility navigation system that tracks operational status in real-time.
 
 ---
 
-## ✦ Tech Stack
+## ✦ Tech Stack & Architecture
 
 | Layer | Technology |
 |---|---|
-| Framework | React 18 + Vite |
-| Styling | Tailwind CSS |
-| Animation | GSAP + ScrollTrigger |
-| Data | GitHub REST API v3 (live feed) |
-| Icons | Lucide React + React Icons |
+| **Core** | React 18 + Vite |
+| **Animation Engine** | GSAP 3 (ScrollTrigger, Flip, Timeline) |
+| **Styling** | Tailwind CSS (Cinematic Dark Mode) |
+| **Data Orchestration** | GitHub REST API v3 (Auto-classified feed) |
+| **Icons** | Lucide React + React Icons |
 
 ---
 
-## ✦ Sections
+## ✦ Operational Modules
 
-| # | Section | Description |
-|---|---|---|
-| 1 | **Hero** | Cinematic entrance with GSAP stagger — massive bold identity reveal |
-| 2 | **About** | Scroll-scrubbed manifesto statement |
-| 3 | **Experience** | Quantified operational timeline with metric tags |
-| 4 | **Capabilities** | Core security competencies + verified credentials |
-| 5 | **Featured Architectures** | Horizontal-scroll showcase (Nexus + CyberSentinel) with business impact callouts |
-| 6 | **Research** | Threat hunting deep dive with a live YARA rule snippet |
-| 7 | **Security Repositories** | Auto-classified GitHub live feed — new security repos appear automatically |
-| 8 | **Contact** | Closing CTA with timezone, availability, and resume link |
+### 01 · The Identity (Hero & About)
+- **Terminal Boot Sequence**: Site initializes with a live terminal log sequence.
+- **Operator Profile**: Technical identity readout including specialization, status, and ID verification.
 
----
+### 02 · Service History (Experience)
+- **Parallax Timeline**: A vertical history log with glowing progress lines and staccato 3D entrances.
+- **Hex Dump Background**: Subtle data visualization layers behind the professional narrative.
 
-## ✦ Live GitHub Feed — How It Works
+### 03 · Operational Intelligence (Featured)
+- **Mission Briefings**: High-stakes project cards (Nexus, CyberSentinel) with scanning line animations and raw tactical stats.
+- **Horizontal Scrubbing**: Projects move horizontally on vertical scroll for high-end cinematic feel.
 
-The **Security Repositories** section is fully autonomous:
-
-- Fetches up to 50 repos from the GitHub API on load
-- Auto-classifies repos using a **30+ keyword engine** (`yara`, `soc`, `dfir`, `pentest`, `threat`, `malware`, etc.)
-- Polls every **5 minutes** — push a new security project and it appears automatically
-- Hard-blocks non-security repos (`wanderluxe`, `portfolio`, `syncflow`, etc.) by name
-
-> **Zero manual updates needed.** Push a new security repo → it's live on the portfolio within minutes.
+### 04 · Operations (Case Files)
+- **Auto-classified Live Feed**: 30+ keyword engine filters GitHub repos in real-time.
+- **Interactive Case Files**: Every repository expands into a full mission briefing (description, topics, meta).
 
 ---
 
-## ✦ Featured Projects
+## ✦ Signature Scene: Nexus Alpha
 
-### Nexus Threat Platform `Infrastructure & Orchestration`
-- **15,000+ EPS** processing via FastAPI / WebSocket pipeline
-- **45% reduction** in false positive alerts through custom correlation rules
-- Reduced P1 analyst response time by eliminating low-fidelity noise at ingestion
-
-### CyberSentinel DFIR `Detection Engineering & Logic`
-- Raw NTFS/FAT sector-level parsing to defeat anti-forensic evasion
-- **98% artifact recovery rate** on heavily fragmented drives
-- Enables attacker attribution by recovering wiped execution artefacts
+The core of the portfolio is the **Nexus Alpha Reveal**.
+1. **Blackout**: The screen goes total black as the user scrolls.
+2. **Analysis**: Terminal logs stream kernel analysis data.
+3. **Alert**: A high-fidelity "THREAT DETECTED" warning flashes on screen.
+4. **Purification**: The system reveals the autonomous response architecture that neutralized the threat.
 
 ---
 
-## ✦ Research
-
-The **Threat Hunting & Research** section features a custom YARA rule authored during a live forensic investigation — detecting APT29 (Cozy Bear) fileless memory droppers **before execution touches disk**.
-
-```yara
-rule APT29_CozyBear_Memory_Dropper {
-    meta:
-        author    = "Prajwal V"
-        severity  = "CRITICAL"
-    condition:
-        $magic at 0 and $decryption_routine and 1 of ($obfuscated*)
-}
-```
-
----
-
-## ✦ Running Locally
+## ✦ Deployment & Usage
 
 ```bash
+# Clone
 git clone https://github.com/prajwal-2201/portfolio
-cd portfolio
+
+# Install & Run
 npm install
 npm run dev
-```
 
-Open [http://localhost:5173](http://localhost:5173)
-
----
-
-## ✦ Building for Production
-
-```bash
+# Build for Production
 npm run build
 ```
-
-Output goes to `dist/` — deploy to Vercel, Netlify, or GitHub Pages.
-
----
-
-## ✦ Certifications
-
-- Ethical Hacker Certification
-- Penetration Testing Course
-- Information Security Certification
-
----
-
-## ✦ Contact
-
-| | |
-|---|---|
-| **Email** | vprajwal2204@gmail.com |
-| **LinkedIn** | [prajwal-v-b975952a0](https://www.linkedin.com/in/prajwal-v-b975952a0/) |
-| **GitHub** | [@prajwal-2201](https://github.com/prajwal-2201) |
-| **Availability** | Remote / Hybrid · IST (UTC +5:30) |
 
 ---
 
 <p align="center">
-  <sub>Built with intent. Deployed with precision. © Prajwal V. 2025</sub>
+  <sub>Built with intent. Deployed with precision. PV_PROTOCOL v8.4.7 · © 2025</sub>
 </p>

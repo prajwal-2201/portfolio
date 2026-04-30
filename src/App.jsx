@@ -1,25 +1,30 @@
 import Navbar from './components/Navbar';
+import ParallaxLayers from './components/ParallaxLayers';
 import Hero from './sections/Hero';
 import About from './sections/About';
 import Experience from './sections/Experience';
 import Arsenal from './sections/Arsenal';
+import SignatureScene from './sections/SignatureScene';
 import Featured from './sections/Featured';
-import TerminalSection from './sections/TerminalSection';
 import Research from './sections/Research';
 import Operations from './sections/Operations';
 import Contact from './sections/Contact';
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-[#020202] text-slate-300 overflow-hidden font-sans selection:bg-white selection:text-black">
+    <div className="relative min-h-screen bg-[#020202] text-slate-300 overflow-x-hidden font-sans selection:bg-white selection:text-black">
       <Navbar />
+      <ParallaxLayers />
       
       <main className="relative z-10">
         <Hero />
         <About />
         <Experience />
         <Arsenal />
-        <TerminalSection />
+        
+        {/* The Signature WOW Moment */}
+        <SignatureScene />
+        
         <Featured />
         <Research />
         <Operations />
