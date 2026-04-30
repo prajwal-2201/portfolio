@@ -1,12 +1,13 @@
-import { useEffect, useRef } from 'react';
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { ArrowRight, Shield, Target, Database, Activity } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const featuredProjects = [
+const missions = [
   {
+    id: "OP-01",
     layer: "Infrastructure & Orchestration",
     title: "Nexus Threat Platform",
     tagline: "Real-time SOC Pipeline · FastAPI / WebSockets",
@@ -14,9 +15,11 @@ const featuredProjects = [
     impact: "Reduced P1 response time by eliminating low-fidelity noise at the ingestion layer.",
     tech: ["Python", "FastAPI", "WebSockets", "Elasticsearch", "React", "Docker"],
     link: "https://github.com/prajwal-2201/Nexus",
-    caseStudy: "https://github.com/prajwal-2201/Nexus#readme"
+    caseStudy: "https://github.com/prajwal-2201/Nexus#readme",
+    stats: { throughput: "15K+ EPS", efficiency: "+45%", status: "OPERATIONAL" }
   },
   {
+    id: "OP-02",
     layer: "Detection Engineering & Logic",
     title: "CyberSentinel DFIR",
     tagline: "Digital Forensics & Incident Response · YARA / Sigma",
@@ -24,18 +27,19 @@ const featuredProjects = [
     impact: "Enables attribution analysis by recovering attacker-wiped execution artefacts.",
     tech: ["C++", "WinAPI", "YARA", "Raw I/O", "Python"],
     link: "https://github.com/prajwal-2201/CyberSentinel",
-    caseStudy: "https://github.com/prajwal-2201/CyberSentinel#readme"
+    caseStudy: "https://github.com/prajwal-2201/CyberSentinel#readme",
+    stats: { recovery: "98% Rate", depth: "Sector Level", status: "STABLE" }
   }
 ];
 
 export default function Featured() {
   const sectionRef = useRef(null);
-  const scrollRef = useRef(null);
+  const scrollRef  = useRef(null);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       const getScrollAmount = () => -(scrollRef.current.scrollWidth - window.innerWidth);
-
       const tween = gsap.to(scrollRef.current, { x: getScrollAmount, ease: "none" });
 
       ScrollTrigger.create({
@@ -57,85 +61,109 @@ export default function Featured() {
       id="featured"
       className="h-screen bg-[#020202] relative overflow-hidden flex flex-col justify-center border-t border-white/5"
     >
-      {/* Section label */}
-      <div className="absolute top-16 left-10 md:left-20 z-20 flex flex-col gap-1">
-        <p className="text-[10px] text-slate-600 uppercase tracking-[0.3em]">01 — Deep Dive</p>
-        <h2 className="text-xl md:text-3xl font-light text-white tracking-tight">
-          Featured <span className="font-bold">Architectures</span>
+      {/* Background Mission Grid */}
+      <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
+
+      {/* Top Section label */}
+      <div className="absolute top-16 left-10 md:left-20 z-20">
+        <div className="flex items-center gap-3 mb-2">
+          <Target size={16} className="text-white/40" />
+          <p className="text-[10px] text-slate-500 uppercase tracking-[0.4em] font-mono">Mission Briefings</p>
+        </div>
+        <h2 className="text-3xl md:text-5xl font-light text-white tracking-tight">
+          Operational <span className="font-bold">Intelligence</span>
         </h2>
       </div>
 
       {/* Horizontal scroll track */}
-      <div ref={scrollRef} className="flex gap-10 px-[10vw] mt-16">
-        {featuredProjects.map((project, idx) => (
-          <div key={idx} className="w-[85vw] md:w-[62vw] lg:w-[52vw] flex-shrink-0 group">
-            <div className="relative h-[68vh] bg-[#0a0a0a] border border-white/10 rounded-3xl p-10 md:p-14 flex flex-col justify-between overflow-hidden transition-all duration-700 hover:border-white/25">
+      <div ref={scrollRef} className="flex gap-12 px-[15vw] mt-24">
+        {missions.map((mission, idx) => (
+          <div 
+            key={idx} 
+            className="w-[85vw] md:w-[65vw] lg:w-[55vw] flex-shrink-0 group perspective-1000"
+            onMouseEnter={() => setHoveredIndex(idx)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            <div className="relative h-[70vh] bg-[#050505] border border-white/5 rounded-2xl p-10 md:p-14 flex flex-col justify-between overflow-hidden transition-all duration-500 group-hover:border-white/20 group-hover:shadow-[0_0_50px_rgba(255,255,255,0.03)]">
+              
+              {/* Mission Overlay ID */}
+              <div className="absolute top-0 right-0 p-8">
+                <span className="text-6xl md:text-8xl font-black text-white/[0.02] font-mono leading-none">{mission.id}</span>
+              </div>
 
-              {/* Hover glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              {/* Scanning Line Animation on hover */}
+              <div className={`absolute top-0 left-0 w-full h-px bg-white/20 z-10 transition-opacity duration-300 ${hoveredIndex === idx ? 'opacity-100 animate-scan' : 'opacity-0'}`} />
 
-              {/* Top content */}
               <div className="relative z-10">
-                {/* Layer badge */}
-                <span className="inline-block px-3 py-1 border border-white/10 rounded-full text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-5">
-                  {project.layer}
-                </span>
+                <div className="flex items-center gap-2 mb-6">
+                  <Shield size={14} className="text-slate-500" />
+                  <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">
+                    {mission.layer}
+                  </span>
+                </div>
 
-                <h3 className="text-4xl md:text-5xl font-black text-white leading-tight tracking-tighter mb-3">
-                  {project.title}
+                <h3 className="text-4xl md:text-6xl font-black text-white leading-tight tracking-tighter mb-4">
+                  {mission.title}
                 </h3>
 
-                <p className="text-[11px] font-mono text-slate-500 uppercase tracking-widest mb-6">
-                  {project.tagline}
+                <p className="text-[11px] font-mono text-slate-500 uppercase tracking-[0.2em] mb-8">
+                  {mission.tagline}
                 </p>
 
-                <p className="text-base text-slate-400 font-light leading-relaxed max-w-xl mb-4">
-                  {project.desc}
+                <p className="text-base md:text-lg text-slate-400 font-light leading-relaxed max-w-2xl mb-8">
+                  {mission.desc}
                 </p>
 
-                {/* Business impact callout */}
-                <div className="flex items-start gap-3 bg-white/[0.03] border border-white/8 rounded-xl px-4 py-3 max-w-xl">
-                  <span className="text-white/40 text-lg leading-none mt-0.5">→</span>
-                  <p className="text-xs text-slate-300 font-light italic leading-relaxed">
-                    {project.impact}
-                  </p>
+                {/* Mission Status / Stats */}
+                <div className="grid grid-cols-3 gap-4 max-w-xl p-4 bg-white/[0.02] border border-white/5 rounded-xl">
+                  {Object.entries(mission.stats).map(([label, val]) => (
+                    <div key={label} className="flex flex-col gap-1">
+                      <span className="text-[9px] text-slate-600 uppercase tracking-widest font-mono">{label}</span>
+                      <span className="text-xs text-white font-mono font-medium">{val}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Bottom row */}
-              <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              {/* Bottom Row */}
+              <div className="relative z-10 flex flex-col sm:flex-row items-end sm:items-center justify-between gap-8">
                 <div className="flex gap-2 flex-wrap">
-                  {project.tech.map(t => (
-                    <span key={t} className="px-3 py-1.5 border border-white/10 rounded-full text-[11px] text-slate-400">
+                  {mission.tech.map(t => (
+                    <span key={t} className="px-3 py-1.5 border border-white/10 rounded text-[10px] font-mono text-slate-500 bg-white/[0.01]">
                       {t}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex items-center gap-6 shrink-0">
-                  {/* Case Study link — always points to the README */}
+                <div className="flex items-center gap-8">
                   <a
-                    href={project.caseStudy}
+                    href={mission.caseStudy}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-white text-xs font-bold uppercase tracking-widest hover:opacity-70 transition-opacity border-b border-white/30 pb-0.5"
+                    className="flex items-center gap-2 text-white text-[11px] font-bold uppercase tracking-[0.2em] group/btn transition-colors hover:text-slate-300"
                   >
-                    Technical Case Study
+                    <Database size={14} />
+                    Mission Data
                   </a>
-
                   <a
-                    href={project.link}
+                    href={mission.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-slate-400 text-xs font-bold uppercase tracking-widest hover:text-white transition-colors group-hover:translate-x-1 duration-300"
+                    className="flex items-center gap-2 text-slate-500 text-[11px] font-bold uppercase tracking-[0.2em] hover:text-white transition-all group-hover:translate-x-1"
                   >
-                    GitHub <ArrowRight size={13} />
+                    Source Code <ArrowRight size={14} />
                   </a>
                 </div>
               </div>
+
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Decorative Progress bar */}
+      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 w-48 h-[1px] bg-white/5">
+        <div className="w-1/2 h-full bg-white/40" />
       </div>
     </section>
   );

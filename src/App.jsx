@@ -4,13 +4,14 @@ import About from './sections/About';
 import Experience from './sections/Experience';
 import Arsenal from './sections/Arsenal';
 import Featured from './sections/Featured';
+import TerminalSection from './sections/TerminalSection';
 import Research from './sections/Research';
-import GithubFeed from './sections/GithubFeed';
+import Operations from './sections/Operations';
 import Contact from './sections/Contact';
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-[#050505] text-slate-300 overflow-hidden font-sans selection:bg-white selection:text-black">
+    <div className="relative min-h-screen bg-[#020202] text-slate-300 overflow-hidden font-sans selection:bg-white selection:text-black">
       <Navbar />
       
       <main className="relative z-10">
@@ -18,9 +19,10 @@ function App() {
         <About />
         <Experience />
         <Arsenal />
+        <TerminalSection />
         <Featured />
         <Research />
-        <GithubFeed />
+        <Operations />
         <Contact />
       </main>
       
