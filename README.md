@@ -1,6 +1,6 @@
 # Prajwal V. — Security Architect Portfolio
 
-> **Live at:** [prajwal-2201.github.io/portfolio](https://prajwal-2201.github.io/portfolio) *(or your deployed URL)*
+> **Live at:** [portfolio-sepia-two-47.vercel.app/](https://portfolio-sepia-two-47.vercel.app/) 
 
 A high-end, cinematic portfolio engineered for **SOC Engineers**, **Detection Architects**, and **Digital Forensics** roles. Built to stand out — not just look good.
 
