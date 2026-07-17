@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, lazy, Suspense } from 'react';
 import { Fingerprint } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 
 // Eagerly loaded (above-fold / critical path)
 import Navbar          from './components/Navbar';
@@ -278,6 +279,8 @@ function App() {
         <ForensicTerminal />
         {/* Floating Resume Download */}
         <ResumeButton />
+        {/* Vercel Web Analytics */}
+        <Analytics />
       </div>
     </>
   );
